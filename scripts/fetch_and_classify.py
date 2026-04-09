@@ -1,7 +1,7 @@
 """
-Fetches ethics/corruption news from GDELT and classifies each article
-using the Google Gemini API. Updates data/articles.json and archives
-articles older than 30 days to data/archive/YYYY-MM.json.
+Fetches ethics/corruption news from curated RSS feeds and classifies
+each article using the Google Gemini API. Updates data/articles.json
+and archives articles older than 30 days to data/archive/YYYY-MM.json.
 """
 
 import json
@@ -9,49 +9,128 @@ import os
 import hashlib
 import time
 import re
-import requests
+import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
+import requests
 
 # ── Config ────────────────────────────────────────────────────────────────────
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 DATA_FILE      = Path("data/articles.json")
 ARCHIVE_DIR    = Path("data/archive")
-GDELT_URL      = "https://api.gdeltproject.org/api/v2/doc/doc"
-MAX_RECORDS    = 50   # per query; 2 queries = up to 100 articles/day for Gemini
 
-# Short, GDELT-friendly queries — sourcelang:english must be in the query string
-# (not a URL param) for reliable English filtering. Gemini filters relevance.
-QUERIES = {
-    "government": "corruption fraud bribery misconduct government official politician sourcelang:english",
-    "nonprofit":  "corruption fraud embezzlement misconduct nonprofit charity NGO foundation sourcelang:english",
-}
+# ── Curated RSS feeds ─────────────────────────────────────────────────────────
+# Mix of ethics-specific outlets and general news filtered by keywords.
+RSS_FEEDS = [
+    # Investigative / corruption-specific
+    "https://feeds.propublica.org/propublica/main",
+    "https://occrp.org/en/feed",
+    "https://www.theguardian.com/world/corruption/rss",
+    "https://www.theguardian.com/politics/ethics/rss",
 
-# ── GDELT fetch ───────────────────────────────────────────────────────────────
-def fetch_gdelt(query: str, retries: int = 3) -> list[dict]:
-    params = {
-        "query":      query,
-        "mode":       "ArtList",
-        "maxrecords": MAX_RECORDS,
-        "timespan":   "1d",
-        "format":     "json",
-        "sort":       "DateDesc",
-    }
-    for attempt in range(1, retries + 1):
+    # General news (high-quality, broad coverage)
+    "https://feeds.reuters.com/reuters/topNews",
+    "https://feeds.bbci.co.uk/news/world/rss.xml",
+    "https://rss.politico.com/politics-news.xml",
+    "https://thehill.com/feed/",
+    "https://www.govexec.com/rss/all/",
+
+    # Finance / accountability
+    "https://www.opensecrets.org/news/feed",
+
+    # Nonprofit / philanthropy
+    "https://nonprofitquarterly.org/feed/",
+    "https://www.philanthropy.com/feed",
+
+    # International accountability
+    "https://www.transparency.org/en/news/feed",
+    "https://globalintegrity.org/feed/",
+]
+
+# Keyword filter — at least one must appear in title or description
+ETHICS_KEYWORDS = [
+    "corrupt", "brib", "fraud", "embezzl", "graft", "kickback",
+    "misconduct", "malfeasance", "scandal", "indicted", "convicted",
+    "ethics", "conflict of interest", "whistleblow", "accountability",
+    "transparency", "anticorrupt", "anti-corrupt", "misappropriat",
+    "extortion", "money launder", "abuse of power", "integrity violation",
+    "self-dealing", "pay-to-play", "bid rigging", "ghost employee",
+    "nepotism", "cronyism",
+]
+
+
+# ── RSS fetch & parse ─────────────────────────────────────────────────────────
+def fetch_feed(url: str) -> list[dict]:
+    headers = {"User-Agent": "Mozilla/5.0 (compatible; EthicsNewsBot/1.0)"}
+    try:
+        resp = requests.get(url, headers=headers, timeout=20)
+        resp.raise_for_status()
+        root = ET.fromstring(resp.content)
+    except Exception as e:
+        print(f"  [Feed error] {url}: {e}")
+        return []
+
+    # Handle both RSS <channel><item> and Atom <entry>
+    ns = {"atom": "http://www.w3.org/2005/Atom"}
+    items = root.findall(".//item") or root.findall(".//atom:entry", ns)
+
+    articles = []
+    for item in items:
+        def text(tag, fallback=""):
+            el = item.find(tag) or item.find(f"atom:{tag}", ns)
+            return (el.text or "").strip() if el is not None else fallback
+
+        title = text("title")
+        link  = text("link") or text("guid")
+
+        # Atom <link> uses href attribute
+        if not link:
+            el = item.find("atom:link", ns)
+            link = el.get("href", "") if el is not None else ""
+
+        pub_date = text("pubDate") or text("published") or text("updated")
+        desc     = re.sub(r"<[^>]+>", " ", text("description") or text("summary"))
+
+        if title and link:
+            articles.append({
+                "title":    clean_text(title),
+                "url":      link.strip(),
+                "desc":     clean_text(desc)[:300],
+                "pub_date": pub_date,
+            })
+    return articles
+
+
+def clean_text(s: str) -> str:
+    s = s.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">")
+    s = s.replace("&quot;", '"').replace("&#39;", "'").replace("&nbsp;", " ")
+    return " ".join(s.split())
+
+
+def parse_date(raw: str) -> str:
+    if not raw:
+        return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    try:
+        return parsedate_to_datetime(raw).strftime("%Y-%m-%d")
+    except Exception:
+        pass
+    for fmt in ("%Y-%m-%dT%H:%M:%S%z", "%Y-%m-%dT%H:%M:%SZ", "%Y-%m-%d"):
         try:
-            resp = requests.get(GDELT_URL, params=params, timeout=30)
-            if resp.status_code == 429:
-                wait = 30 * attempt
-                print(f"  [GDELT] Rate limited. Waiting {wait}s before retry {attempt}/{retries}...")
-                time.sleep(wait)
-                continue
-            resp.raise_for_status()
-            return resp.json().get("articles") or []
-        except Exception as e:
-            print(f"  [GDELT error] attempt {attempt}/{retries}: {e}")
-            if attempt < retries:
-                time.sleep(15 * attempt)
-    return []
+            return datetime.strptime(raw[:19], fmt[:len(raw[:19])]).strftime("%Y-%m-%d")
+        except Exception:
+            continue
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d")
+
+
+def is_ethics_related(title: str, desc: str) -> bool:
+    text = (title + " " + desc).lower()
+    return any(kw in text for kw in ETHICS_KEYWORDS)
+
+
+def domain_from_url(url: str) -> str:
+    m = re.search(r"https?://(?:www\.)?([^/]+)", url)
+    return m.group(1) if m else url
 
 
 # ── Gemini classification ──────────────────────────────────────────────────────
@@ -60,10 +139,10 @@ GEMINI_URL = (
     "/models/gemini-1.5-flash-latest:generateContent?key={key}"
 )
 
-CLASSIFY_PROMPT = """Classify this news article. Respond with ONLY a JSON object — no markdown fences, no explanation.
+CLASSIFY_PROMPT = """Classify this news article. Respond with ONLY a JSON object — no markdown, no explanation.
 
 Title: {title}
-Source domain: {domain}
+Source: {domain}
 
 Return exactly this structure:
 {{
@@ -74,10 +153,10 @@ Return exactly this structure:
 }}
 
 Definitions:
-- sector:   Is this about ethics/corruption/integrity/accountability in government/public sector ("government"), nonprofits/charities/NGOs ("nonprofit"), both ("both"), or neither/unrelated ("neither")?
-- tone:     "negative" = corruption, fraud, or misconduct story; "positive" = anti-corruption success, whistleblower win, accountability working; "neutral" = ambiguous
-- us_story: Is this story primarily about events OCCURRING IN the United States? (true/false — not about where it was published)
-- relevant: Is this genuinely about ethics, corruption, fraud, accountability, or integrity issues? (true/false — filter out unrelated articles)
+- sector:   Is this about ethics/corruption/integrity/accountability in government/public sector ("government"), nonprofits/charities/NGOs ("nonprofit"), both ("both"), or neither ("neither")?
+- tone:     "negative" = corruption/fraud/misconduct story; "positive" = anti-corruption success, whistleblower win, accountability working; "neutral" = ambiguous
+- us_story: Is this story primarily about events OCCURRING IN the United States?
+- relevant: Is this genuinely about ethics, corruption, fraud, accountability, or integrity? Filter out unrelated articles.
 """
 
 def classify_article(title: str, domain: str) -> dict | None:
@@ -90,35 +169,28 @@ def classify_article(title: str, domain: str) -> dict | None:
         "contents": [{"parts": [{"text": prompt}]}],
         "generationConfig": {"temperature": 0.1, "maxOutputTokens": 150},
     }
-
-    try:
-        resp = requests.post(
-            GEMINI_URL.format(key=GEMINI_API_KEY),
-            json=payload,
-            timeout=30,
-        )
-        resp.raise_for_status()
-        raw = resp.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
-
-        # Strip any accidental markdown code fences
-        raw = re.sub(r"^```[a-z]*\n?", "", raw)
-        raw = re.sub(r"\n?```$", "", raw)
-
-        return json.loads(raw)
-    except Exception as e:
-        print(f"  [Gemini error] {e}")
-        return None
+    for attempt in range(1, 4):
+        try:
+            resp = requests.post(
+                GEMINI_URL.format(key=GEMINI_API_KEY),
+                json=payload,
+                timeout=30,
+            )
+            resp.raise_for_status()
+            raw = resp.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
+            raw = re.sub(r"^```[a-z]*\n?", "", raw)
+            raw = re.sub(r"\n?```$", "", raw)
+            return json.loads(raw)
+        except Exception as e:
+            print(f"  [Gemini error] attempt {attempt}/3: {e}")
+            if attempt < 3:
+                time.sleep(5 * attempt)
+    return None
 
 
 # ── Data helpers ───────────────────────────────────────────────────────────────
 def article_id(url: str) -> str:
     return hashlib.md5(url.encode()).hexdigest()[:12]
-
-def parse_gdelt_date(seendate: str) -> str:
-    try:
-        return datetime.strptime(seendate[:8], "%Y%m%d").strftime("%Y-%m-%d")
-    except Exception:
-        return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 def load_articles() -> dict:
     if DATA_FILE.exists():
@@ -131,24 +203,15 @@ def save_articles(data: dict) -> None:
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
 
-def clean_title(title: str) -> str:
-    """Remove common HTML entities and extra whitespace."""
-    title = title.replace("&amp;", "&").replace("&lt;", "<").replace("&gt;", ">")
-    title = title.replace("&quot;", '"').replace("&#39;", "'")
-    return " ".join(title.split())
-
 def archive_old_articles(data: dict) -> dict:
-    """Move articles older than 30 days into monthly archive JSON files."""
     cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")
     active, to_archive = [], []
-
     for article in data["articles"]:
         (to_archive if article["date"] < cutoff else active).append(article)
 
     by_month: dict[str, list] = {}
     for article in to_archive:
-        month_key = article["date"][:7]
-        by_month.setdefault(month_key, []).append(article)
+        by_month.setdefault(article["date"][:7], []).append(article)
 
     ARCHIVE_DIR.mkdir(parents=True, exist_ok=True)
     for month_key, articles in by_month.items():
@@ -157,8 +220,7 @@ def archive_old_articles(data: dict) -> dict:
             with open(archive_file) as f:
                 existing = json.load(f)
             existing_ids = {a["id"] for a in existing.get("articles", [])}
-            new = [a for a in articles if a["id"] not in existing_ids]
-            existing["articles"].extend(new)
+            existing["articles"].extend(a for a in articles if a["id"] not in existing_ids)
             with open(archive_file, "w") as f:
                 json.dump(existing, f, indent=2, ensure_ascii=False)
         else:
@@ -172,19 +234,18 @@ def archive_old_articles(data: dict) -> dict:
 # ── Main ───────────────────────────────────────────────────────────────────────
 def main() -> None:
     print("=== Ethics News Fetch & Classify ===")
-    data        = load_articles()
-    existing_ids: set[str] = {a["id"] for a in data["articles"]}
-    seen_urls:   set[str]  = set()
+    data         = load_articles()
+    existing_ids = {a["id"] for a in data["articles"]}
+    seen_urls:   set[str] = set()
     new_count = 0
 
-    for query_label, query in QUERIES.items():
-        print(f"\nQuerying GDELT [{query_label}]...")
-        raw_articles = fetch_gdelt(query)
-        print(f"  Received {len(raw_articles)} results.")
-        time.sleep(10)  # polite pause between GDELT requests
+    for feed_url in RSS_FEEDS:
+        print(f"\nFetching: {feed_url}")
+        items = fetch_feed(feed_url)
+        print(f"  Got {len(items)} items.")
 
-        for raw in raw_articles:
-            url = raw.get("url", "").strip()
+        for item in items:
+            url = item["url"]
             if not url or url in seen_urls:
                 continue
             seen_urls.add(url)
@@ -193,20 +254,22 @@ def main() -> None:
             if aid in existing_ids:
                 continue
 
-            title = clean_title(raw.get("title", ""))
+            title = item["title"]
             if not title:
                 continue
 
-            domain   = raw.get("domain", "")
-            date_str = parse_gdelt_date(raw.get("seendate", ""))
+            # Quick keyword pre-filter to avoid wasting Gemini calls
+            if not is_ethics_related(title, item["desc"]):
+                continue
+
+            domain   = domain_from_url(url)
+            date_str = parse_date(item["pub_date"])
 
             print(f"  Classifying: {title[:70]}...")
             result = classify_article(title, domain)
-            time.sleep(0.6)  # stay well under Gemini's 15 req/min free limit
+            time.sleep(0.6)  # stay under Gemini free tier rate limit
 
-            if not result:
-                continue
-            if not result.get("relevant", False):
+            if not result or not result.get("relevant"):
                 continue
 
             sector = result.get("sector", "neither")
