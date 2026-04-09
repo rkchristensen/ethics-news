@@ -152,6 +152,10 @@ def fetch_feed(url: str) -> list[dict]:
         resp = requests.get(url, headers=headers, timeout=20)
         resp.raise_for_status()
         content = resp.content
+        print(f"  HTTP {resp.status_code}, {len(content)} bytes")
+        if len(content) < 100:
+            print(f"  [Tiny response] {content[:200]}")
+            return []
         # Replace common HTML entities that break strict XML parsing
         for bad, good in [
             (b"&nbsp;", b" "), (b"&mdash;", b"&#8212;"), (b"&ndash;", b"&#8211;"),

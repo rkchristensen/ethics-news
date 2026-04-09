@@ -30,6 +30,7 @@ jobs:
       - name: Fetch and classify articles
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PYTHONUNBUFFERED: "1"
         run: python scripts/fetch_and_classify.py
 
       - name: Generate HTML
