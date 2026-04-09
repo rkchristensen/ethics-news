@@ -75,6 +75,20 @@ GOVERNMENT_TERMS = {
     "commissioner", "bureaucrat", "regulator", "police", "judiciary",
     "lawmaker", "legislat", "public sector", "public office",
     "attorney general", "prosecutor", "administration",
+    # Regulatory & law enforcement agencies
+    "sec ", "f.b.i", "fbi", "irs", "doj", "dhs", "epa", "fda", "ftc",
+    "cftc", "ofac", "interpol", "europol", "hmrc", "nato",
+    "securities commission", "revenue service", "treasury",
+    "u.s. attorney", "district attorney", "state attorney",
+    "inspector general", "ethics office", "auditor general",
+    "comptroller", "ombudsman", "anticorruption commission",
+    "anti-corruption commission", "anti-corruption bureau",
+    # Courts & law
+    "court", "judge", "indictment", "grand jury", "plea", "sentenc",
+    "convicted", "acquitted", "trial", "verdict",
+    # International government bodies
+    "ministry", "cabinet", "prefecture", "municipality", "borough",
+    "ward", "district", "province", "prefecture",
 }
 
 NONPROFIT_TERMS = {

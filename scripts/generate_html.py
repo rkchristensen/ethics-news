@@ -140,8 +140,8 @@ def build_page(
   <footer>
     <p>
       Stories sourced automatically from global English-language news via
-      <a href="https://www.gdeltproject.org" target="_blank" rel="noopener">GDELT</a>.
-      Classified by AI &mdash; always verify before sharing.
+      <a href="https://news.google.com" target="_blank" rel="noopener">Google News</a>.
+      Classified by keyword matching &mdash; always verify before sharing.
     </p>
   </footer>
 
