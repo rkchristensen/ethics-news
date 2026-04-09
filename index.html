@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ethics in the News</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1>Ethics in the News</h1>
+    <p class="subtitle">Tracking accountability in government &amp; nonprofits worldwide</p>
+    <p class="updated">Updated April 09, 2026</p>
+  </header>
+
+  <main>
+    
+    
+    <div class="filter-bar">
+  <span class="filter-label">Show:</span>
+  <button class="filter-btn active" data-filter="all">All Stories</button>
+  <button class="filter-btn" data-filter="us">US Only</button>
+  <button class="filter-btn" data-filter="intl">International Only</button>
+</div>
+    <div class="legend">
+  <span class="legend-item negative">&#9632; Unethical / Misconduct</span>
+  <span class="legend-item positive">&#9632; Positive / Accountability</span>
+</div>
+
+    <div class="columns">
+      <section class="column" id="gov-column">
+        <h2>Government &amp; Public Sector <span class="count">(0)</span></h2>
+        <div class="tiles" id="gov-tiles">
+          <p class="empty-msg">No stories yet.</p>
+        </div>
+      </section>
+
+      <section class="column" id="ngo-column">
+        <h2>Nonprofits &amp; NGOs <span class="count">(0)</span></h2>
+        <div class="tiles" id="ngo-tiles">
+          <p class="empty-msg">No stories yet.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p>
+      Stories sourced automatically from global English-language news via
+      <a href="https://www.gdeltproject.org" target="_blank" rel="noopener">GDELT</a>.
+      Classified by AI &mdash; always verify before sharing.
+    </p>
+  </footer>
+
+  <script src="assets/script.js"></script>
+</body>
+</html>
