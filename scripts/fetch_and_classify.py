@@ -20,25 +20,14 @@ ARCHIVE_DIR    = Path("data/archive")
 GDELT_URL      = "https://api.gdeltproject.org/api/v2/doc/doc"
 MAX_RECORDS    = 50   # per query; 2 queries = up to 100 articles/day for Gemini
 
-# Search queries sent to GDELT DOC API
+# Short, GDELT-friendly queries — Gemini handles relevance filtering downstream
 QUERIES = {
-    "government": (
-        "(corruption OR fraud OR embezzlement OR bribery OR graft OR misconduct "
-        "OR malfeasance OR kickback OR \"conflict of interest\" OR anticorruption "
-        "OR whistleblower OR accountability OR transparency) "
-        "(government OR official OR politician OR minister OR parliament OR congress "
-        "OR mayor OR governor OR \"public sector\" OR federal OR municipal OR bureaucrat)"
-    ),
-    "nonprofit": (
-        "(corruption OR fraud OR embezzlement OR misappropriation OR misconduct "
-        "OR \"conflict of interest\" OR accountability OR transparency OR investigation) "
-        "(nonprofit OR charity OR NGO OR \"non-governmental\" OR foundation "
-        "OR \"not-for-profit\" OR charitable OR \"aid organization\")"
-    ),
+    "government": "corruption fraud bribery misconduct government official politician",
+    "nonprofit":  "corruption fraud embezzlement misconduct nonprofit charity NGO foundation",
 }
 
 # ── GDELT fetch ───────────────────────────────────────────────────────────────
-def fetch_gdelt(query: str) -> list[dict]:
+def fetch_gdelt(query: str, retries: int = 3) -> list[dict]:
     params = {
         "query":       query,
         "mode":        "ArtList",
@@ -48,13 +37,21 @@ def fetch_gdelt(query: str) -> list[dict]:
         "sort":        "DateDesc",
         "sourcelang":  "english",
     }
-    try:
-        resp = requests.get(GDELT_URL, params=params, timeout=30)
-        resp.raise_for_status()
-        return resp.json().get("articles", [])
-    except Exception as e:
-        print(f"  [GDELT error] {e}")
-        return []
+    for attempt in range(1, retries + 1):
+        try:
+            resp = requests.get(GDELT_URL, params=params, timeout=30)
+            if resp.status_code == 429:
+                wait = 30 * attempt
+                print(f"  [GDELT] Rate limited. Waiting {wait}s before retry {attempt}/{retries}...")
+                time.sleep(wait)
+                continue
+            resp.raise_for_status()
+            return resp.json().get("articles", [])
+        except Exception as e:
+            print(f"  [GDELT error] attempt {attempt}/{retries}: {e}")
+            if attempt < retries:
+                time.sleep(15 * attempt)
+    return []
 
 
 # ── Gemini classification ──────────────────────────────────────────────────────
