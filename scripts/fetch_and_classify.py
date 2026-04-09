@@ -19,6 +19,8 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 # ── Config ────────────────────────────────────────────────────────────────────
+import os, time
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
 DATA_FILE   = Path("data/articles.json")
 ARCHIVE_DIR = Path("data/archive")
 USER_AGENT  = "ethics-news-board/1.0"
@@ -251,6 +253,68 @@ def archive_old_articles(data: dict) -> dict:
     return data
 
 
+# ── Gemini one-line summary ───────────────────────────────────────────────────
+GEMINI_URL = (
+    "https://generativelanguage.googleapis.com/v1beta"
+    "/models/gemini-1.5-flash-latest:generateContent?key={key}"
+)
+
+SUMMARY_PROMPT = """You are a news editor. Given a news headline, write exactly one sentence of background context.
+
+Rules:
+- Do NOT restate or paraphrase the headline — add new information
+- Include relevant context: who is involved, what the broader case is about, what agency/jurisdiction, or why it matters
+- Be specific and factual
+- Do not start with "This article", "The headline", or "This story"
+- Maximum 35 words
+
+Headline: {title}
+Source: {source}
+
+Reply with only the one sentence, no quotes, no punctuation other than the sentence itself."""
+
+def generate_summary(title: str, source: str) -> str:
+    if not GEMINI_API_KEY:
+        return ""
+    prompt  = SUMMARY_PROMPT.format(title=title, source=source)
+    payload = json.dumps({
+        "contents": [{"parts": [{"text": prompt}]}],
+        "generationConfig": {"temperature": 0.3, "maxOutputTokens": 80},
+    }).encode()
+    url = GEMINI_URL.format(key=GEMINI_API_KEY)
+    for attempt in range(1, 3):
+        try:
+            req = urllib.request.Request(
+                url, data=payload,
+                headers={"Content-Type": "application/json"},
+                method="POST"
+            )
+            with urllib.request.urlopen(req, timeout=30) as r:
+                body = json.loads(r.read())
+            text = body["candidates"][0]["content"]["parts"][0]["text"].strip()
+            # Strip surrounding quotes if Gemini added them
+            return text.strip('"').strip("'")
+        except Exception as e:
+            print(f"  [Gemini summary error] attempt {attempt}: {e}")
+            if attempt < 2:
+                time.sleep(3)
+    return ""
+
+
+def backfill_summaries(data: dict) -> int:
+    """Add summaries to any articles that don't have one yet."""
+    count = 0
+    for article in data["articles"]:
+        if article.get("summary"):
+            continue
+        summary = generate_summary(article["title"], article["source"])
+        time.sleep(0.6)
+        if summary:
+            article["summary"] = summary
+            count += 1
+    return count
+
+
 # ── Main ───────────────────────────────────────────────────────────────────────
 def main() -> None:
     print("=== Ethics News Fetch & Classify ===")
@@ -296,6 +360,10 @@ def main() -> None:
             us     = classify_us(text)
             date   = parse_date(item["pub"])
 
+            print(f"  Summarizing: {title[:60]}...")
+            summary = generate_summary(title, source)
+            time.sleep(0.6)
+
             data["articles"].append({
                 "id":         aid,
                 "url":        url,
@@ -305,6 +373,7 @@ def main() -> None:
                 "sector":     sector,
                 "tone":       tone,
                 "us_story":   us,
+                "summary":    summary,
                 "added_date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
             })
             existing_ids.add(aid)
@@ -326,6 +395,14 @@ def main() -> None:
             ngo_seen += 1
         trimmed.append(a)
     data["articles"] = trimmed
+
+    # Backfill summaries for any existing articles that don't have one yet
+    if GEMINI_API_KEY:
+        missing = sum(1 for a in data["articles"] if not a.get("summary"))
+        if missing:
+            print(f"\nBackfilling summaries for {missing} existing article(s)...")
+            filled = backfill_summaries(data)
+            print(f"  Filled {filled} summaries.")
 
     data = archive_old_articles(data)
     save_articles(data)

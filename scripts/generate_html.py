@@ -40,17 +40,22 @@ def load_archive_months() -> list[dict]:
 
 # ── HTML building blocks ───────────────────────────────────────────────────────
 def tile_html(article: dict) -> str:
-    tone      = article.get("tone", "neutral")
-    border    = "tile-negative" if tone == "negative" else ("tile-positive" if tone == "positive" else "tile-neutral")
-    us_attr   = "true" if article.get("us_story") else "false"
-    title_esc = escape(article.get("title", ""))
-    url_esc   = escape(article.get("url", "#"))
-    source    = escape(article.get("source", ""))
-    date      = escape(article.get("date", ""))
+    tone        = article.get("tone", "neutral")
+    border      = "tile-negative" if tone == "negative" else ("tile-positive" if tone == "positive" else "tile-neutral")
+    us_attr     = "true" if article.get("us_story") else "false"
+    title_esc   = escape(article.get("title", ""))
+    url_esc     = escape(article.get("url", "#"))
+    source      = escape(article.get("source", ""))
+    date        = escape(article.get("date", ""))
+    summary     = escape(article.get("summary", ""))
+    search_text = escape((article.get("title", "") + " " + article.get("summary", "")).lower())
+
+    summary_html = f'  <p class="tile-summary">{summary}</p>\n' if summary else ""
 
     return (
-        f'<div class="tile {border}" data-us="{us_attr}">\n'
+        f'<div class="tile {border}" data-us="{us_attr}" data-searchtext="{search_text}">\n'
         f'  <a href="{url_esc}" target="_blank" rel="noopener noreferrer" class="tile-title">{title_esc}</a>\n'
+        f'{summary_html}'
         f'  <div class="tile-meta">{source} &bull; {date}</div>\n'
         f'</div>'
     )
@@ -62,6 +67,11 @@ def archive_nav(months: list[dict]) -> str:
         f'<a href="archive/{m["key"]}.html">{m["label"]}</a>' for m in months
     )
     return f'<nav class="archive-nav"><strong>Archives:</strong> {links}</nav>'
+
+def search_bar() -> str:
+    return """<div class="search-bar">
+  <input type="text" id="search-input" placeholder="&#128269; Search titles and summaries..." autocomplete="off" spellcheck="false">
+</div>"""
 
 def filter_bar() -> str:
     return """<div class="filter-bar">
@@ -117,6 +127,7 @@ def build_page(
   <main>
     {nav_html}
     {back_link}
+    {search_bar()}
     {filter_bar()}
     {legend()}
 
