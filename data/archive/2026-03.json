@@ -1,0 +1,48 @@
+{
+  "articles": [
+    {
+      "id": "faeba557a53d",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxNVm9tTkdCTHY0TXlPZDlWVmdDQlExRzhndDJqam9SUy1DNW9Sai1rWV9KblpmZEFpLUFIQnhFYy0wenVtUVBaN09DcHBrSjVDSVdoMkJBSWRyUDFtOXdabjlOa1NyMlQ3dWRKSkdpVzA1a0Yyd1dXUUFMMWRiTmhRT2lNdjk3YWlOWV9LdjRuVUdhY1Y0ZjFISUxhSHFMQQ?oc=5",
+      "title": "Crypto entrepreneur Justin Sun settles SEC fraud case for $10 million - Reuters",
+      "source": "Reuters",
+      "date": "2026-03-05",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": false,
+      "added_date": "2026-04-09"
+    },
+    {
+      "id": "f7d214fffb2c",
+      "url": "https://news.google.com/rss/articles/CBMi2AFBVV95cUxQcHhyblVIQ0xRelI1a1JNM1g5VmxEOHdTd1NmbEJTeGxRV1ljeWQ4RTM2MXpyUzhUZzAyOWpNQjdaMzZIZXhpY2ZvUmF4RWptWDhjN3BQbkNzRWhBTTBGTUp1eWlaVDJ3ajBVazBQc00zd0h0OFNHd3otWGo2Zm1UclkzTXpUTUZVaW11MGVFUUVlZXlvWlg5bjlHZWVoTlF1S0pjWUZjbDhJYmFyMHJFZjFuY2lmZ3pKS3VFYWlEOXlxd3Zfb2xHb05DUGY2S1JFczVfQ2R3YnHSAeYBQVVfeXFMT2FPUzdPdTNtZGN0bVgybk9uX3dlYjdwMmdibWV3UUIwUGJ0cjJETGQxVkpCcTlJUlRJQUVFa0tCeGdBbmlJdXp4aXo5cHVKVndkUERXZFk5NWwyWndaaUd0X0lNR2NfQkRPZkQwSkZyZXkwcS15eVJaOF8xaXZscFF5WWJyRXM4Sl9pdk0zXzJuMC11bElxRUtjV2RpakJHTXZPeVpfUlE3cHg1c21CRXAyNnZxRm96VU9qbDdDT1ByWUJXUWNBYlYyWG1PRzlLaTNoc3MtWnMtSmhMSm9TdlY1ZmN4VXc?oc=5",
+      "title": "Arappor Iyakkam releases anti-corruption manifesto, wants parties to include it - The New Indian Express",
+      "source": "The New Indian Express",
+      "date": "2026-03-04",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": false,
+      "added_date": "2026-04-09"
+    },
+    {
+      "id": "2b314debf8a4",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQdHdTaEFISnFmUldiMzcwS25KaUlDcXRiaDV5VE1TWUFRN2E0MGFwNjlHcjdKV2FZRDZ0OUpBeTJ5d28zRm5mdU54QW1GNnRWNm9NZGpfbVE1dU9xS2hSd3pBcVNYMHltekowMWZTQktXUFhSRFQ3OFdpd2dwalZFMi1aYzlmN0pSMzc2cDlqNW9jT0Q4NXVWeUhRQ3U5X0tPeW5RbXJtMzFGZENCeWx4ZjBCSlJrdw?oc=5",
+      "title": "Transparency for Accountability: Our 2025 Payout Surpassed Set it at Six - MacArthur Foundation",
+      "source": "MacArthur Foundation",
+      "date": "2026-03-03",
+      "sector": "nonprofit",
+      "tone": "positive",
+      "us_story": false,
+      "added_date": "2026-04-09"
+    },
+    {
+      "id": "aec3a9215667",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPRzdkQ1NwVGRIdG9PY3F6aDVUaGRGbFdrSEplekdIamI2Qk1qXy02b2Y2bllGSEJSTm8yOS1vOTdnZHByR2ZOZEV4UEtKS3d6Ym9lcU83eTB1RWtQMl8xbFFYZld6U1AtMFl1cmhDY1hVckJ5b3AzV1Y1T1dlc3BzRS1kdEVFczJrbFc3RU5B?oc=5",
+      "title": "Opinion | Nonprofits shouldn’t be shielded from accountability - The Boston Globe",
+      "source": "The Boston Globe",
+      "date": "2026-03-02",
+      "sector": "nonprofit",
+      "tone": "positive",
+      "us_story": false,
+      "added_date": "2026-04-09"
+    }
+  ]
+}

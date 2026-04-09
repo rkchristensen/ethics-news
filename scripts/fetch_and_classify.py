@@ -1,18 +1,15 @@
 """
-Fetches ethics/corruption news via Google News RSS (aggregates thousands of
-sources, works from GitHub Actions) and classifies each article using the
-Google Gemini API. Updates data/articles.json and archives articles older
-than 30 days to data/archive/YYYY-MM.json.
+Fetches ethics/corruption news via Google News RSS and classifies each
+article using keyword matching (fast, free, no API needed).
+Updates data/articles.json and archives articles older than 30 days.
 """
 
 from __future__ import annotations
 
 import json
-import os
 import hashlib
 import re
 import ssl
-import time
 import urllib.parse
 import urllib.request
 import urllib.error
@@ -22,29 +19,23 @@ from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 # ── Config ────────────────────────────────────────────────────────────────────
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
-DATA_FILE      = Path("data/articles.json")
-ARCHIVE_DIR    = Path("data/archive")
-USER_AGENT     = "ethics-news-board/1.0"
+DATA_FILE   = Path("data/articles.json")
+ARCHIVE_DIR = Path("data/archive")
+USER_AGENT  = "ethics-news-board/1.0"
+MAX_PER_COL = 60   # max articles per column to keep active
 
 # ── Google News RSS queries ───────────────────────────────────────────────────
-# Each query returns up to ~10 recent results from thousands of global sources.
 GOVERNMENT_QUERIES = [
     "government corruption",
-    "public corruption indicted",
-    "government official fraud",
+    "public official corruption",
+    "government fraud indicted",
     "public sector bribery",
     "city council corruption",
     "politician misconduct",
     "federal corruption case",
     "ethics commission investigation",
-    "government official charged",
-    "public official embezzlement",
-    "government graft",
     "government whistleblower",
     "government accountability ethics",
-    "government official kickback",
-    "municipal corruption arrested",
 ]
 
 NONPROFIT_QUERIES = [
@@ -52,22 +43,62 @@ NONPROFIT_QUERIES = [
     "charity fraud",
     "ngo corruption",
     "charity embezzlement",
-    "foundation misconduct",
-    "nonprofit misappropriation",
-    "charity accountability",
-    "nonprofit ethics violation",
-    "aid organization fraud",
-    "nonprofit governance scandal",
+    "nonprofit misconduct",
+    "foundation fraud scandal",
+    "nonprofit accountability",
+    "charity misappropriation",
 ]
 
-# ── Keyword pre-filter (avoids burning Gemini quota on irrelevant stories) ────
-ETHICS_KEYWORDS = {
-    "corrupt", "brib", "fraud", "embezzl", "graft", "kickback",
-    "misconduct", "malfeasance", "scandal", "indicted", "convicted",
-    "charged", "arrested", "probe", "investigation", "misappropriat",
-    "extortion", "money launder", "abuse of power", "ethics",
-    "whistleblow", "accountability", "transparency", "self-dealing",
-    "nepotism", "cronyism", "conflict of interest", "reform",
+# ── Classification keywords ───────────────────────────────────────────────────
+NEGATIVE_KEYWORDS = {
+    "corrupt", "corruption", "bribery", "bribe", "fraud", "embezzl",
+    "graft", "kickback", "money launder", "scandal", "probe",
+    "indicted", "convicted", "arrested", "charged", "misconduct",
+    "malfeasance", "misappropriat", "extortion", "self-dealing",
+    "nepotism", "cronyism", "racketeering", "misuse of funds",
+    "breach of trust", "abuse of power", "conflict of interest",
+    "pay-to-play", "bid rigging", "ghost employee",
+}
+
+POSITIVE_KEYWORDS = {
+    "anti-corruption", "anticorruption", "reform", "transparency",
+    "oversight", "accountability", "acquitted", "cleared",
+    "whistleblower", "new ethics rules", "ethics reform",
+    "strengthens ethics", "adopts ethics", "ethics overhaul",
+    "good governance", "integrity award", "conviction overturned",
+}
+
+GOVERNMENT_TERMS = {
+    "government", "municipal", "city", "state", "federal", "minister",
+    "senate", "congress", "parliament", "mayor", "governor", "agency",
+    "department", "county", "official", "politician", "council",
+    "commissioner", "bureaucrat", "regulator", "police", "judiciary",
+    "lawmaker", "legislat", "public sector", "public office",
+    "attorney general", "prosecutor", "administration",
+}
+
+NONPROFIT_TERMS = {
+    "nonprofit", "non-profit", "charity", "foundation", "ngo",
+    "not-for-profit", "philanthropy", "charitable", "aid organization",
+    "relief organization", "advocacy group", "civic organization",
+    "endowment", "501(c)",
+}
+
+US_TERMS = {
+    "u.s.", "united states", "american", "washington d.c.",
+    "congress", "senate", "white house", "fbi", "doj", "irs",
+    "department of justice", "u.s. attorney", "federal bureau",
+    # US states (partial match — covered by "in" check below)
+    "alabama", "alaska", "arizona", "arkansas", "california",
+    "colorado", "connecticut", "delaware", "florida", "georgia",
+    "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas",
+    "kentucky", "louisiana", "maine", "maryland", "massachusetts",
+    "michigan", "minnesota", "mississippi", "missouri", "montana",
+    "nebraska", "nevada", "new hampshire", "new jersey", "new mexico",
+    "new york", "north carolina", "north dakota", "ohio", "oklahoma",
+    "oregon", "pennsylvania", "rhode island", "south carolina",
+    "south dakota", "tennessee", "texas", "utah", "vermont",
+    "virginia", "west virginia", "wisconsin", "wyoming",
 }
 
 
@@ -97,13 +128,10 @@ def parse_rss(xml_bytes: bytes) -> list[dict]:
         title = (item.findtext("title") or "").strip()
         url   = (item.findtext("link")  or "").strip()
         pub   = (item.findtext("pubDate") or "").strip()
-
-        # Google News puts the outlet name in <source>
         source_el = item.find("source")
         source = (source_el.text or "").strip() if source_el is not None else ""
         if not source and " - " in title:
             source = title.rsplit(" - ", 1)[-1].strip()
-
         if title and url:
             results.append({"title": title, "url": url, "pub": pub, "source": source})
     return results
@@ -116,73 +144,60 @@ def parse_date(raw: str) -> str:
         return datetime.now(timezone.utc).strftime("%Y-%m-%d")
 
 
-def is_ethics_related(title: str) -> bool:
-    t = title.lower()
-    return any(kw in t for kw in ETHICS_KEYWORDS)
-
-
 def clean(s: str) -> str:
-    return " ".join(s.replace("&amp;", "&").replace("&#39;", "'")
-                     .replace("&quot;", '"').split())
+    return " ".join(
+        s.replace("&amp;", "&").replace("&#39;", "'")
+         .replace("&quot;", '"').replace("&nbsp;", " ").split()
+    )
 
 
-# ── Gemini classification ──────────────────────────────────────────────────────
-import urllib.request as _ur
+# ── Keyword classification (instant, no API) ──────────────────────────────────
+def contains_any(text: str, terms: set[str]) -> bool:
+    return any(t in text for t in terms)
 
-GEMINI_URL = (
-    "https://generativelanguage.googleapis.com/v1beta"
-    "/models/gemini-1.5-flash-latest:generateContent?key={key}"
-)
 
-CLASSIFY_PROMPT = """Classify this news article. Respond with ONLY a JSON object — no markdown, no extra text.
+def classify_tone(text: str) -> str:
+    if contains_any(text, NEGATIVE_KEYWORDS):
+        return "negative"
+    if contains_any(text, POSITIVE_KEYWORDS):
+        return "positive"
+    return "neutral"
 
-Title: {title}
-Source: {source}
 
-Return exactly:
-{{
-  "sector":   "government" | "nonprofit" | "both" | "neither",
-  "tone":     "negative" | "positive" | "neutral",
-  "us_story": true | false,
-  "relevant": true | false
-}}
+def classify_sector(text: str, default: str) -> str:
+    is_gov = contains_any(text, GOVERNMENT_TERMS)
+    is_ngo = contains_any(text, NONPROFIT_TERMS)
+    if is_gov and is_ngo:
+        return "both"
+    if is_gov:
+        return "government"
+    if is_ngo:
+        return "nonprofit"
+    return default   # fall back to whichever query found it
 
-- sector:   government/public sector, nonprofit/charity/NGO, both, or neither
-- tone:     negative=corruption/fraud/misconduct, positive=accountability/reform/anti-corruption win, neutral=ambiguous
-- us_story: true if the story is primarily about events IN the United States
-- relevant: true if genuinely about ethics, corruption, fraud, accountability, or integrity
-"""
 
-def classify(title: str, source: str) -> dict | None:
-    if not GEMINI_API_KEY:
-        return None
-    prompt  = CLASSIFY_PROMPT.format(title=title, source=source)
-    payload = json.dumps({
-        "contents": [{"parts": [{"text": prompt}]}],
-        "generationConfig": {"temperature": 0.1, "maxOutputTokens": 150},
-    }).encode()
-    url = GEMINI_URL.format(key=GEMINI_API_KEY)
-    for attempt in range(1, 4):
-        try:
-            req  = urllib.request.Request(url, data=payload,
-                                          headers={"Content-Type": "application/json"},
-                                          method="POST")
-            with urllib.request.urlopen(req, timeout=30) as r:
-                body = json.loads(r.read())
-            raw = body["candidates"][0]["content"]["parts"][0]["text"].strip()
-            raw = re.sub(r"^```[a-z]*\n?", "", raw)
-            raw = re.sub(r"\n?```$",       "", raw)
-            return json.loads(raw)
-        except Exception as e:
-            print(f"  [Gemini error] attempt {attempt}/3: {e}")
-            if attempt < 3:
-                time.sleep(5 * attempt)
-    return None
+def classify_us(text: str) -> bool:
+    return contains_any(text, US_TERMS)
+
+
+def is_relevant(text: str) -> bool:
+    """Must contain at least one ethics/corruption keyword."""
+    return contains_any(text, NEGATIVE_KEYWORDS | POSITIVE_KEYWORDS)
+
+
+def is_business_only(text: str) -> bool:
+    """Skip pure finance/business stories with no public-sector angle."""
+    business = {"earnings", "quarterly results", "stock price", "share price",
+                "ipo", "merger", "acquisition", "wall street", "nasdaq", "dow jones"}
+    has_business = contains_any(text, business)
+    has_public   = contains_any(text, GOVERNMENT_TERMS | NONPROFIT_TERMS)
+    return has_business and not has_public
 
 
 # ── Data helpers ───────────────────────────────────────────────────────────────
 def article_id(url: str) -> str:
     return hashlib.md5(url.encode()).hexdigest()[:12]
+
 
 def load_articles() -> dict:
     if DATA_FILE.exists():
@@ -190,10 +205,12 @@ def load_articles() -> dict:
             return json.load(f)
     return {"articles": []}
 
+
 def save_articles(data: dict) -> None:
     DATA_FILE.parent.mkdir(parents=True, exist_ok=True)
     with open(DATA_FILE, "w") as f:
         json.dump(data, f, indent=2, ensure_ascii=False)
+
 
 def archive_old_articles(data: dict) -> dict:
     cutoff = (datetime.now(timezone.utc) - timedelta(days=30)).strftime("%Y-%m-%d")
@@ -255,20 +272,15 @@ def main() -> None:
 
             title  = clean(item["title"])
             source = clean(item["source"])
+            text   = title.lower()
+
+            if not is_relevant(text) or is_business_only(text):
+                continue
+
+            sector = classify_sector(text, default_sector)
+            tone   = classify_tone(text)
+            us     = classify_us(text)
             date   = parse_date(item["pub"])
-
-            if not is_ethics_related(title):
-                continue
-
-            print(f"  Classifying: {title[:70]}...")
-            result = classify(title, source)
-            time.sleep(0.6)
-
-            if not result or not result.get("relevant"):
-                continue
-            sector = result.get("sector", "neither")
-            if sector == "neither":
-                continue
 
             data["articles"].append({
                 "id":         aid,
@@ -277,12 +289,29 @@ def main() -> None:
                 "source":     source,
                 "date":       date,
                 "sector":     sector,
-                "tone":       result.get("tone", "neutral"),
-                "us_story":   bool(result.get("us_story", False)),
+                "tone":       tone,
+                "us_story":   us,
                 "added_date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
             })
             existing_ids.add(aid)
             new_count += 1
+
+    # Trim to MAX_PER_COL per sector (keep newest)
+    data["articles"].sort(key=lambda a: a["date"], reverse=True)
+    gov_seen, ngo_seen = 0, 0
+    trimmed = []
+    for a in data["articles"]:
+        s = a["sector"]
+        if s in ("government", "both"):
+            if gov_seen >= MAX_PER_COL:
+                continue
+            gov_seen += 1
+        if s in ("nonprofit", "both"):
+            if ngo_seen >= MAX_PER_COL:
+                continue
+            ngo_seen += 1
+        trimmed.append(a)
+    data["articles"] = trimmed
 
     data = archive_old_articles(data)
     save_articles(data)
