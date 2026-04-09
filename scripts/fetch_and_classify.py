@@ -20,22 +20,22 @@ ARCHIVE_DIR    = Path("data/archive")
 GDELT_URL      = "https://api.gdeltproject.org/api/v2/doc/doc"
 MAX_RECORDS    = 50   # per query; 2 queries = up to 100 articles/day for Gemini
 
-# Short, GDELT-friendly queries — Gemini handles relevance filtering downstream
+# Short, GDELT-friendly queries — sourcelang:english must be in the query string
+# (not a URL param) for reliable English filtering. Gemini filters relevance.
 QUERIES = {
-    "government": "corruption fraud bribery misconduct government official politician",
-    "nonprofit":  "corruption fraud embezzlement misconduct nonprofit charity NGO foundation",
+    "government": "corruption fraud bribery misconduct government official politician sourcelang:english",
+    "nonprofit":  "corruption fraud embezzlement misconduct nonprofit charity NGO foundation sourcelang:english",
 }
 
 # ── GDELT fetch ───────────────────────────────────────────────────────────────
 def fetch_gdelt(query: str, retries: int = 3) -> list[dict]:
     params = {
-        "query":       query,
-        "mode":        "ArtList",
-        "maxrecords":  MAX_RECORDS,
-        "timespan":    "1d",
-        "format":      "json",
-        "sort":        "DateDesc",
-        "sourcelang":  "english",
+        "query":      query,
+        "mode":       "ArtList",
+        "maxrecords": MAX_RECORDS,
+        "timespan":   "1d",
+        "format":     "json",
+        "sort":       "DateDesc",
     }
     for attempt in range(1, retries + 1):
         try:
@@ -46,7 +46,7 @@ def fetch_gdelt(query: str, retries: int = 3) -> list[dict]:
                 time.sleep(wait)
                 continue
             resp.raise_for_status()
-            return resp.json().get("articles", [])
+            return resp.json().get("articles") or []
         except Exception as e:
             print(f"  [GDELT error] attempt {attempt}/{retries}: {e}")
             if attempt < retries:
@@ -181,7 +181,7 @@ def main() -> None:
         print(f"\nQuerying GDELT [{query_label}]...")
         raw_articles = fetch_gdelt(query)
         print(f"  Received {len(raw_articles)} results.")
-        time.sleep(2)  # polite pause between GDELT requests
+        time.sleep(10)  # polite pause between GDELT requests
 
         for raw in raw_articles:
             url = raw.get("url", "").strip()
