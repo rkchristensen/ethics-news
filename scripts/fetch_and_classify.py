@@ -21,31 +21,116 @@ DATA_FILE      = Path("data/articles.json")
 ARCHIVE_DIR    = Path("data/archive")
 
 # ── Curated RSS feeds ─────────────────────────────────────────────────────────
-# Mix of ethics-specific outlets and general news filtered by keywords.
 RSS_FEEDS = [
-    # Investigative / corruption-specific
-    "https://feeds.propublica.org/propublica/main",
-    "https://occrp.org/en/feed",
+
+    # ── Investigative & watchdog (global) ─────────────────────────────────────
+    "https://feeds.propublica.org/propublica/main",           # ProPublica (US)
+    "https://occrp.org/en/feed",                             # OCCRP (global corruption)
+    "https://www.icij.org/feed/",                            # ICIJ (Panama Papers etc.)
+    "https://theintercept.com/feed/?rss",                    # The Intercept
+    "https://insightcrime.org/feed/",                        # InSight Crime (Latin America)
+    "https://www.citizensforethics.org/feed/",               # CREW
+    "https://whistleblower.org/feed/",                       # Govt Accountability Project
+    "https://gfintegrity.org/feed/",                         # Global Financial Integrity
+    "https://taxjustice.net/feed/",                          # Tax Justice Network
+    "https://www.globalwitness.org/en/news/feed/",           # Global Witness
+    "https://www.bellingcat.com/feed/",                      # Bellingcat
+    "https://www.muckrock.com/news/feed/",                   # MuckRock (FOIA)
+    "https://www.corruptionwatch.org.za/feed/",              # Corruption Watch (S. Africa)
+    "https://balkaninsight.com/feed/",                       # BIRN (Balkans corruption)
+
+    # ── Anti-corruption & transparency organizations ───────────────────────────
+    "https://www.transparency.org/en/news/feed",             # Transparency International
+    "https://globalintegrity.org/feed/",                     # Global Integrity
+    "https://www.opensecrets.org/news/feed",                 # OpenSecrets
+
+    # ── Guardian (dedicated ethics/corruption/fraud tags) ─────────────────────
     "https://www.theguardian.com/world/corruption/rss",
     "https://www.theguardian.com/politics/ethics/rss",
+    "https://www.theguardian.com/global-development/aid/rss",
+    "https://www.theguardian.com/world/fraud/rss",
+    "https://www.theguardian.com/us-news/rss",
+    "https://www.theguardian.com/world/rss",
 
-    # General news (high-quality, broad coverage)
-    "https://feeds.reuters.com/reuters/topNews",
+    # ── US national news ───────────────────────────────────────────────────────
     "https://feeds.bbci.co.uk/news/world/rss.xml",
     "https://rss.politico.com/politics-news.xml",
     "https://thehill.com/feed/",
     "https://www.govexec.com/rss/all/",
+    "https://www.federaltimes.com/feed/",
+    "https://rollcall.com/feed/",
+    "https://www.route-fifty.com/feed",
+    "https://feeds.npr.org/1001/rss.xml",
+    "https://www.motherjones.com/feed/",
+    "https://www.thenation.com/feed/?post_type=article",
+    "https://apnews.com/apf-topnews",                        # AP News
+    "https://www.washingtonpost.com/rss/politics",
+    "https://rss.nytimes.com/services/xml/rss/nf/US.xml",
 
-    # Finance / accountability
-    "https://www.opensecrets.org/news/feed",
+    # ── UK & Ireland ──────────────────────────────────────────────────────────
+    "https://www.independent.co.uk/news/world/rss",
+    "https://www.opendemocracy.net/en/rss.xml",
+    "https://bylinetimes.com/feed/",
 
-    # Nonprofit / philanthropy
+    # ── Europe ────────────────────────────────────────────────────────────────
+    "https://www.euractiv.com/feed/",
+    "https://www.politico.eu/feed/",
+    "https://www.spiegel.de/international/index.rss",        # Der Spiegel (English)
+    "https://euobserver.com/rss.xml",
+
+    # ── Africa ────────────────────────────────────────────────────────────────
+    "https://mg.co.za/feed/",                                # Mail & Guardian (S. Africa)
+    "https://www.premiumtimesng.com/feed/",                  # Premium Times (Nigeria)
+    "https://allafrica.com/tools/headlines/rdf/latest/headlines.rdf",
+    "https://www.theeastafrican.co.ke/tea/rss",              # The East African
+    "https://www.nation.africa/kenya/rss.xml",               # Daily Nation (Kenya)
+
+    # ── Asia & Pacific ────────────────────────────────────────────────────────
+    "https://www.scmp.com/rss/91/feed",                      # South China Morning Post
+    "https://www.thehindu.com/news/feeder/default.rss",      # The Hindu (India)
+    "https://asia.nikkei.com/rss/feed/nar",                  # Nikkei Asia
+    "https://www.bangkokpost.com/rss/data/topstories.xml",   # Bangkok Post
+    "https://www.dawn.com/feeds/home",                       # Dawn (Pakistan)
+    "https://www.abc.net.au/news/feed/51120/rss.xml",        # ABC Australia
+    "https://www.smh.com.au/rss/feed.xml",                   # Sydney Morning Herald
+    "https://www.straitstimes.com/news/world/rss.xml",       # Straits Times (Singapore)
+    "https://www.rappler.com/feed/",                         # Rappler (Philippines)
+
+    # ── Latin America ─────────────────────────────────────────────────────────
+    "https://english.elpais.com/rss/",                       # El País English
+    "https://apublica.org/feed/",                            # Agência Pública (Brazil)
+    "https://www.ticotimes.net/feed",                        # Tico Times (Costa Rica)
+    "https://mexiconewsdaily.com/feed/",                     # Mexico News Daily
+
+    # ── Middle East ───────────────────────────────────────────────────────────
+    "https://www.aljazeera.com/xml/rss/all.xml",
+    "https://www.arabnews.com/rss.xml",
+    "https://www.jordantimes.com/rss.xml",
+    "https://www.middleeasteye.net/rss",                     # Middle East Eye
+
+    # ── Canada ────────────────────────────────────────────────────────────────
+    "https://www.cbc.ca/cmlink/rss-topstories",
+    "https://www.theglobeandmail.com/arc/outboundfeeds/rss/",
+    "https://nationalpost.com/feed/",
+
+    # ── International broadcasters ────────────────────────────────────────────
+    "https://rss.dw.com/rdf/rss-en-all",                     # Deutsche Welle
+    "https://www.france24.com/en/rss",
+    "https://www.voanews.com/api/z-mq_qei-qq/feed.rss",     # Voice of America
+    "https://www.rfi.fr/en/rss",                             # Radio France Intl
+    "https://www.euronews.com/rss",
+    "https://www.dw.com/en/top-stories/s-9097/rss",
+
+    # ── Nonprofit, philanthropy & NGO sector ──────────────────────────────────
     "https://nonprofitquarterly.org/feed/",
     "https://www.philanthropy.com/feed",
+    "https://www.insidephilanthropy.com/home?format=rss",
+    "https://www.thenewhumanitarian.org/rss.xml",            # Humanitarian affairs
+    "https://www.devex.com/news/rss",                        # Int'l development
+    "https://www.bond.org.uk/feed",                          # UK NGO sector
+    "https://www.alliancemagazine.org/feed/",                # Global philanthropy
+    "https://ssir.org/feed",                                  # Stanford Social Innovation Review
 
-    # International accountability
-    "https://www.transparency.org/en/news/feed",
-    "https://globalintegrity.org/feed/",
 ]
 
 # Keyword filter — at least one must appear in title or description
@@ -66,7 +151,15 @@ def fetch_feed(url: str) -> list[dict]:
     try:
         resp = requests.get(url, headers=headers, timeout=20)
         resp.raise_for_status()
-        root = ET.fromstring(resp.content)
+        content = resp.content
+        # Replace common HTML entities that break strict XML parsing
+        for bad, good in [
+            (b"&nbsp;", b" "), (b"&mdash;", b"&#8212;"), (b"&ndash;", b"&#8211;"),
+            (b"&lsquo;", b"&#8216;"), (b"&rsquo;", b"&#8217;"), (b"&ldquo;", b"&#8220;"),
+            (b"&rdquo;", b"&#8221;"), (b"&hellip;", b"&#8230;"), (b"&amp;amp;", b"&amp;"),
+        ]:
+            content = content.replace(bad, good)
+        root = ET.fromstring(content)
     except Exception as e:
         print(f"  [Feed error] {url}: {e}")
         return []
