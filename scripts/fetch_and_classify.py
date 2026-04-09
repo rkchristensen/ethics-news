@@ -301,10 +301,12 @@ def generate_summary(title: str, source: str) -> str:
     return ""
 
 
-def backfill_summaries(data: dict) -> int:
-    """Add summaries to any articles that don't have one yet."""
+def backfill_summaries(data: dict, max_per_run: int = 20) -> int:
+    """Add summaries to articles missing one, up to max_per_run per run."""
     count = 0
     for article in data["articles"]:
+        if count >= max_per_run:
+            break
         if article.get("summary"):
             continue
         summary = generate_summary(article["title"], article["source"])
