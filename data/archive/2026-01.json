@@ -71,6 +71,66 @@
       "us_story": false,
       "summary": "",
       "added_date": "2026-04-09"
+    },
+    {
+      "id": "b03e95b50836",
+      "url": "https://news.google.com/rss/articles/CBMijgFBVV95cUxPSzJTS3RkSjdUdEdLN19PSDlwWkNEVUNpS1FNb25sLXAtZ0NTVU9ySF9FY1paaXVQb04yamRNLXRxTmVRN2k2bFZrWnhmUHZtcldOV2FuazE5VXJRNzN3Y0FEY0k4eTRtbi1GVzRpdGowYktzY3c2ZmVWUEZobHVfWFlMMjRVVHhVUXE2ZGNn?oc=5",
+      "title": "Charity Executive Arrested in $23M Homeless Fund Fraud Case - Palisades News",
+      "source": "Palisades News",
+      "date": "2026-01-26",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-10"
+    },
+    {
+      "id": "7719d1d0fbfb",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxNS1lSLXJOR2RiRFVkWHZkVWhlTUowUDZvd1lkU1I1SWJaQ1J1elJNT2R6RlJxUlA0LVlaMEhmSmFyd1p4SXBIS3BmVjNYYnNwQmZJUU1DSzQzaXN2SVFRRWcwN0VobGE4a2xIRy10Smp1TDljd3R6d1RUYzFKX0xhUXJ1SHZQUzBXakM2ajBzYU5RZTBFc1BwZ2JGZkFVVnEzT2J4Q2FobTBMMVBvSHhpcmZtRl9NVExVRXRCZkhyNjY4bXVsRXNLSHZIS1p4bDQ?oc=5",
+      "title": "Homeless Nonprofit Leader Indicted After Taking $23M in LA Funds - LAmag",
+      "source": "LAmag",
+      "date": "2026-01-23",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-10"
+    },
+    {
+      "id": "09ba83854dde",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQN3JOWXlIWWxscldsQ3A1dmxCQjRZR2EtMk9Jb051NlBHNnN3Y0xSMXJrRjBSRml3ekZKaFBTZW00Tk03em1CWjFMUHVKSWN5Q0Jrc2pWMW54d1pYN1YwaVd0eG5uYTNJSGZlaFpWUGdwQVp5Q3M5Tk5MT0stcVdHY0pHTFhMU0lvTjJPeEVBNlRvT081VVlhRUNsV0hYeUFZekZVS1E4ZGsyS1VHN0JqSTBlS1BzTDZjbVNn?oc=5",
+      "title": "California Charity Executive Arrested In $23 Million Homelessness Funding Fraud Case - Dallas Express",
+      "source": "Dallas Express",
+      "date": "2026-01-23",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": true,
+      "summary": "",
+      "added_date": "2026-04-10"
+    },
+    {
+      "id": "a11cca76ce44",
+      "url": "https://news.google.com/rss/articles/CBMif0FVX3lxTE94ZGFHbHpiUDdEZEQwVE9xVkVWM1JQSmxPcTNiNGxzc0JNV1Y0X1ZMYmpfUXFIMmFUeDBuSzh2RXJpeFNXT0pVWVJPdjVuYlR2c1ZueEpnSnlfS2ZZeU8zX1lBUVhxcHRaLWpWNGRXbllKRHdSa29XZ0JvVDZkaGPSAYQBQVVfeXFMT0YweGJPS1J5eDRuTzU4c1pxVTRhSnppbEFZRElLVGlKWGFzYkhVR09yNEdLY1JrcGQ4SGgxM0dQYU9qMkJkMVRSVDRSanotUEJFTHZfTWwtRF96bTk3UmxlQ1dzNmhiaDBEeGY0U2QxT0FaUTQzV0NOVlJLbEtvZDY4czRL?oc=5",
+      "title": "LA charity leader arrested for embezzling millions in homeless funding - FOX 11 Los Angeles",
+      "source": "FOX 11 Los Angeles",
+      "date": "2026-01-23",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-10"
+    },
+    {
+      "id": "a0debede3946",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOYUtla000ak5zMWJHM3hia25PQk9YSEFFclJRSTJDUnllMHBkVU1BdzVNc2I0UUZvamZhdUpCdGk2RE9IQ3gyZkZuRk1WaFZfeFdoNC1oQ1JLdlc3bEhPMWk2aEhVNi1xcDBJYnhQaE5tTTEydXZuZFFiT1BZWVM4bDl5RnlJU3ZBdWQtWHBNa2Z3WnJjZzAyQWdhV2d4ZlRZNVNPNw?oc=5",
+      "title": "Audit uncovers 'potential fraud' at nonprofit tied to Sen. Doug McCrory - Connecticut Public",
+      "source": "Connecticut Public",
+      "date": "2026-01-21",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": true,
+      "summary": "",
+      "added_date": "2026-04-10"
     }
   ]
 }
