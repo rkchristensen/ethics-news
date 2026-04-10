@@ -256,7 +256,7 @@ def archive_old_articles(data: dict) -> dict:
 # ── Gemini one-line summary ───────────────────────────────────────────────────
 GEMINI_URL = (
     "https://generativelanguage.googleapis.com/v1beta"
-    "/models/gemini-1.5-flash-latest:generateContent?key={key}"
+    "/models/gemini-2.0-flash:generateContent?key={key}"
 )
 
 SUMMARY_PROMPT = """You are a news editor. Given a news headline, write exactly one sentence of background context.
