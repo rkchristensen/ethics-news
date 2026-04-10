@@ -143,6 +143,42 @@
       "us_story": false,
       "summary": "",
       "added_date": "2026-04-10"
+    },
+    {
+      "id": "0504bc0982f7",
+      "url": "https://news.google.com/rss/articles/CBMiugJBVV95cUxPVVpLSWstM0p4TkZMcGstOGZpNXdGVG85S1MtVzB4SDZfRGloMWlBNXZ1aXZuWE51Z3E1VTh5a1gxdVJwdEl1RFd2d0Z1NmgwR0NxcVBtQXRCekpzVm90VXFwbkhSX0RWeU5JMEVwa2dnU3hKUEQwV3ZjemRHd09ISF9aekUwN2hXLU5lNzF2WE1NTjZOWkV1Y3NoRlBqWlFhenNRTVpYWUR6NS1wMlVkZHRTR3ozbWRvUm8wRDhOSThvLWdLZC1ISDJDb3ViMnJPNnBIMGdXSnppcTVUWm92QU5Ra01xNEJkalFtSHIyYklQcTJ0Q29JNGdfT1ZxRlI3NmJPU0V2WjZDSFJibEFUbnVydk5CblZoYlRUMWVxVDFVR1gzeFJXQVlVWXphbzlxeEFEdzZVOVZTQQ?oc=5",
+      "title": "Charity fraud exposed: DC-area nonprofits shut down for exploiting kids - WJLA",
+      "source": "WJLA",
+      "date": "2026-01-20",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-10"
+    },
+    {
+      "id": "aa9b571aad3b",
+      "url": "https://news.google.com/rss/articles/CBMiuAFBVV95cUxNNkYwSHVTS2VsU1YtaFNMQ0hleGgzRENvS0pYWlhhVXhlYXg4ZEtFbVZpbXA4REJ6Q3VFOEkyV1FHSDM1NXhZeF9hTGNZWjJkUkJPNmZ2NGk3bzZ5SV9pYnp0LWpDRURZcDh6eV9jOEhfdjlPWDFyc1FhTzdkTTY5b0t3Y2Z2c1dJV0lyVFZZRERLV1VyQ25odjdmRWhxZ0NwVFhJSGlraGQ0M3VXamlJQUo0OUVUa1VE?oc=5",
+      "title": "The OpenAI Fraud Case Reveals a Broken System. Here's the Fix Nobody's Talking About. - The Tech Buzz",
+      "source": "The Tech Buzz",
+      "date": "2026-01-16",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-10"
+    },
+    {
+      "id": "145907ce3919",
+      "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPb1BTX0t1VW5BRGY2dzNGOUhVSlB3TTBoYTlrTkQ0QWt0YmJIcVdzODMybUVQeEtXRDMydWdHU2Q4MzdaMDJJQUI0OFlTSkFRZ0Q5MmFOay1WQzhFMXRkVVBsQXozUndVYktIbjdaRTdPVjRVOG0tb3d0ZXpMbDM4UVpmUWp5TkpEb2MzQy0wcTZEZk9pbTRpYkFzTkJtMzA?oc=5",
+      "title": "Charges Are Dismissed in Cake Scandal That Shamed Italy’s Top Influencer - The New York Times",
+      "source": "The New York Times",
+      "date": "2026-01-15",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": true,
+      "summary": "",
+      "added_date": "2026-04-10"
     }
   ]
 }
