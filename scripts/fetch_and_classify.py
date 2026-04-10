@@ -282,26 +282,27 @@ def generate_summary(title: str, source: str) -> str:
         "generationConfig": {"temperature": 0.3, "maxOutputTokens": 80},
     }).encode()
     url = GEMINI_URL.format(key=GEMINI_API_KEY)
-    for attempt in range(1, 3):
-        try:
-            req = urllib.request.Request(
-                url, data=payload,
-                headers={"Content-Type": "application/json"},
-                method="POST"
-            )
-            with urllib.request.urlopen(req, timeout=30) as r:
-                body = json.loads(r.read())
-            text = body["candidates"][0]["content"]["parts"][0]["text"].strip()
-            # Strip surrounding quotes if Gemini added them
-            return text.strip('"').strip("'")
-        except Exception as e:
-            print(f"  [Gemini summary error] attempt {attempt}: {e}")
-            if attempt < 2:
-                time.sleep(3)
+    try:
+        req = urllib.request.Request(
+            url, data=payload,
+            headers={"Content-Type": "application/json"},
+            method="POST"
+        )
+        with urllib.request.urlopen(req, timeout=20) as r:
+            body = json.loads(r.read())
+        text = body["candidates"][0]["content"]["parts"][0]["text"].strip()
+        return text.strip('"').strip("'")
+    except urllib.error.HTTPError as e:
+        if e.code == 429:
+            print(f"  [Gemini] Rate limit hit — quota likely exhausted, skipping remaining summaries.")
+            raise  # Re-raise so backfill stops entirely
+        print(f"  [Gemini error] {e}")
+    except Exception as e:
+        print(f"  [Gemini error] {e}")
     return ""
 
 
-def backfill_summaries(data: dict, max_per_run: int = 20) -> int:
+def backfill_summaries(data: dict, max_per_run: int = 10) -> int:
     """Add summaries to articles missing one, up to max_per_run per run."""
     count = 0
     for article in data["articles"]:
@@ -309,8 +310,12 @@ def backfill_summaries(data: dict, max_per_run: int = 20) -> int:
             break
         if article.get("summary"):
             continue
-        summary = generate_summary(article["title"], article["source"])
-        time.sleep(0.6)
+        try:
+            summary = generate_summary(article["title"], article["source"])
+        except urllib.error.HTTPError:
+            print("  Stopping backfill — quota exhausted.")
+            break
+        time.sleep(4)  # Respect 15 RPM free tier limit
         if summary:
             article["summary"] = summary
             count += 1
