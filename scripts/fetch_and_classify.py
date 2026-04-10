@@ -362,10 +362,6 @@ def main() -> None:
             us     = classify_us(text)
             date   = parse_date(item["pub"])
 
-            print(f"  Summarizing: {title[:60]}...")
-            summary = generate_summary(title, source)
-            time.sleep(0.6)
-
             data["articles"].append({
                 "id":         aid,
                 "url":        url,
@@ -375,7 +371,7 @@ def main() -> None:
                 "sector":     sector,
                 "tone":       tone,
                 "us_story":   us,
-                "summary":    summary,
+                "summary":    "",
                 "added_date": datetime.now(timezone.utc).strftime("%Y-%m-%d"),
             })
             existing_ids.add(aid)
@@ -398,12 +394,12 @@ def main() -> None:
         trimmed.append(a)
     data["articles"] = trimmed
 
-    # Backfill summaries for any existing articles that don't have one yet
+    # Backfill summaries AFTER trimming — only for the articles we actually keep
     if GEMINI_API_KEY:
         missing = sum(1 for a in data["articles"] if not a.get("summary"))
         if missing:
-            print(f"\nBackfilling summaries for {missing} existing article(s)...")
-            filled = backfill_summaries(data)
+            print(f"\nBackfilling summaries for up to 10 of {missing} article(s)...")
+            filled = backfill_summaries(data, max_per_run=10)
             print(f"  Filled {filled} summaries.")
 
     data = archive_old_articles(data)
