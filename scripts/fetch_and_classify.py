@@ -293,10 +293,14 @@ def generate_summary(title: str, source: str) -> str:
         text = body["candidates"][0]["content"]["parts"][0]["text"].strip()
         return text.strip('"').strip("'")
     except urllib.error.HTTPError as e:
+        try:
+            err_body = e.read().decode("utf-8", errors="replace")
+        except Exception:
+            err_body = "(could not read body)"
         if e.code == 429:
-            print(f"  [Gemini] Rate limit hit — quota likely exhausted, skipping remaining summaries.")
+            print(f"  [Gemini 429] {err_body[:300]}")
             raise  # Re-raise so backfill stops entirely
-        print(f"  [Gemini error] {e}")
+        print(f"  [Gemini error {e.code}] {err_body[:300]}")
     except Exception as e:
         print(f"  [Gemini error] {e}")
     return ""
