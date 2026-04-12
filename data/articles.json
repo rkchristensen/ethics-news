@@ -1,6 +1,54 @@
 {
   "articles": [
     {
+      "id": "25bf7b1e1094",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQdWEyeFltck9zWmE1RUJ6a1NuNkV0Y2M4WVlpRlhLN1hrRDNlMHlXdldnYV9nRDd4UE41eEZoR0FUUlZRMjZYbFV1OC1keXhKalQ2cE1tWkJ3UFRfRFVJWko1QmtHdjUtd3VDUldBeU1GeTRMREJ1elBJNU95MUdsUFJ0aEkySzgtc1lXeFI0b2p5QXBpaEFrSlJsVG9PQ00xUlkzWjl5OEd6Tm9jRFZNZ2ZvTGhYNGZLbVZrcDZPS2t1Zw?oc=5",
+      "title": "NYC Mayor Scrambles to Secure Council Approval for Corruption Watchdog Pick - National Today",
+      "source": "National Today",
+      "date": "2026-04-12",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-12"
+    },
+    {
+      "id": "1180c1382278",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxOVkNXX1RhMkJkVDZJTW9qUGJ0UW5nRVZTdks1VHRsa19CVUJwaDFDdEVsQzlkMElqaGltRDFnbnY5VWZOTkRyNDUtTFNlMjQ5Y29LcWdzby11VVE0aXl1Q09kN083aFZfZ3FjQ3JObmFhNFU3cTZtMnZ3eE9JTmJMNVdtamI0aGVKZUd0cThCOU5KeU5lWXBIODJXWnEyQldLVjU3QUhKWmxjcGNwT29ZZnFYU19HLWF0eW1idG45T3ZFeWVnU2130gHUAUFVX3lxTE5PTkZyM1J0YXlvMjZYaENBa0dRcGRlTDFRUHJRdnFjeU95Q3FCcW0zcmUybURTVWJKN1l1MjQ5VjFqYWE1b0VPUEU2cHU2eG05M2RYRmdsblU3bzJTRWMzWmw2cjhMa0IwYURKYzZGU2lEdjFmT3VWd1ZYcUYtX0ExYkRFd1FRYzdZN004dGNKN2g4NDlWN19MbklsMUlUVUZCRzJEMTgxcGtRckl3OWx6Y0dYNjR3WjRMQXZhOXJRUl9TWllfWFFFdTJuUlRSLWlNUGxm?oc=5",
+      "title": "Telangana ex-minister alleges bias, corruption in excise department - The New Indian Express",
+      "source": "The New Indian Express",
+      "date": "2026-04-12",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-12"
+    },
+    {
+      "id": "aa18e778dfd2",
+      "url": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNLUpMN0tKMkYzaW5RMUN1NmFDNzZSbWFJVWEtNGxWZjY3b1Rxb3NTOWJ6VmRDT3BoSUpfU3VuaVp1RVA1RU0zZDBzdXBJcnF6LTlDaWVwSlI1VWM3S3JkenhKNjRkSDRFbm14ZU9GM3FDanJyLTZWbDdhR19jd0hDaVMtTjdSSWJOTjhyOXdLenlVeGo3MDJSeHlRRW9oRWpVRFdWTEk3aVR5blo1Z0V1dGhEenlKaHZQOGVZdFg5UzJwT3JO0gHKAUFVX3lxTE5wUFpGeVFJaVBjbkZXTW82c0tUcDdMNmZHWHhzNlZxa18zQUMxSkRIWWk1RmVlSDNYOW1QektGOHB6ajYydU9ZU0U5S2wzQkpTLVRoZTg2UG9IQ2F5Z1ZXcVZmYVM3UlhIOEVpTGpSVWo5VzJPRUU2WDhackppV182RXhhRzdPNDE4ZlRlV1BfNXJoV3ZhWVJKazFmWEgxLUJseUNrU3FHM0JwNGtEQ0RhSTRkUFNwT29XS19LVGRiMXhpMzlrM0wyVkE?oc=5",
+      "title": "Reduced red tape, corruption makes India attractive: Frank Richter - Asianet Newsable",
+      "source": "Asianet Newsable",
+      "date": "2026-04-12",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-12"
+    },
+    {
+      "id": "f6764ecb8c85",
+      "url": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxQaWlDQzVaOHVFczNpd04zOHNpXy0yaExDSzVsRlVuZ2ktX3VtN2paalc4YVFlT1QzbWZKY2RzajFWTWNTS3V3dHh0RV95ODZHUi1kcEZ6Y1lITGE4ZzZVYnNEdVFUVGRSTVlaeDBGdE5VSDR3ZE84RERZVUVZRFVjbHRtRkRxdzdNRlRhX1hDTWw2Zk0wR2w2cGNmWXJVM21mNENQelNoeVVaNklMb0Q2enZodEJNbVdQendoNnhwWWpiQQ?oc=5",
+      "title": "ANC Greater Tshwane welcomes TMPD testimony at Madlanga Commission on corruption - IOL",
+      "source": "IOL",
+      "date": "2026-04-12",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-12"
+    },
+    {
       "id": "e5a532952e22",
       "url": "https://news.google.com/rss/articles/CBMitAFBVV95cUxQSkZJUXFFdkVuWlZRQlh5YkdJX1pmRzhrb2Q0ck54elhRMFI0ZnFSc0wxM3dKQlplVnc3NWNHeWsyYXJCN0lUWjFZUDE5MUdMbXNFcWxMZ1dkbnlzSUpQb1hDd0JyU2hsYlkxbnRBWjZ3aG1iVV8tVzY3MEI3RGplTEx3Z3o2cEdrTU10SVhBMlVyRk82ZHE1dDlxX0xWTVVvcFlEVTZSWE9XR2lNdVl5RWhtcDDSAboBQVVfeXFMTnQ5MFRuQVczRVY0YTFucnhzSXJabmZES1ZhMXNySEdFLXdnQmVOTDI4RkR4QjVzVVMzRXF3YWlreTNNVjNuLV84TjRhcmlhWGxfdWN3aGdqMlhYQTJRZ2JlY3pNS2hUSThDdjlUVHdSTnRhTmV3eFBJV3ZTblJFVHZJX0NjaWprcTZCMG0wd3haMmtMUXEwZVNNY05Tc0pXX3R3QjQ4QzJTWjl5Qkc4RDlpbHRFaXpESHNn?oc=5",
       "title": "PM Modi targets ‘syndicate raj’ in West Bengal, vows White Paper on corruption and probe into political violence - The Statesman",
@@ -227,6 +275,18 @@
       "us_story": false,
       "summary": "Qmamoloko Kubayi, South Africa's justice minister, discusses new whistleblower protection measures in response to growing concerns about government corruption and abuse of power within law enforcement agencies.",
       "added_date": "2026-04-11"
+    },
+    {
+      "id": "4f349bd7f34f",
+      "url": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQbU1FeXZnb1dTUGxieEY0bTFpczZWdGIwUlJnUXowWWhRTUEwV2R0ZlFqMUNjVjd6ck1lcGlzUFFqR3U1TFYzOTNQQnNXeWhia2MtN1hkbGdYUnNIaDl3a3FNNzlIY0dUREFWcE4xVVVGbnNmejNpc2kzRzdjbnpvbGxyc1VGN3I4aFZBVk1TNS13YXBfSGdtOVYzNHpTWXM0WWZ5Uldla25HRDVKTy03VWYzdV9CRlNqd1pIUndGNmJYOFFLNEE?oc=5",
+      "title": "LA Councilmember Curren Price Pleads Not Guilty in Corruption Case - National Today",
+      "source": "National Today",
+      "date": "2026-04-11",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-12"
     },
     {
       "id": "f5eadfbcd41c",
@@ -625,6 +685,18 @@
       "added_date": "2026-04-11"
     },
     {
+      "id": "9a6e9b86bf54",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNcXZHMFZNNDN4ZUIwd2FTdFJ1S2Y3Z1dISndYNnNudmhVQ3BOc0FyY184ZTBaR1djc1ZuM1pzaHQ1UHVneG94akdiU1JXTEp3TjJQWDhCY1QtcVV6RG5qMGc1RFhBVlFHaFR5WnBRS1VMQ3lPbE9iRExvTFRKZk9LTm03cjdJRndKVExSMzRvMW14UGs0a3hGR0xNRFotYUxwOW5XNTgxekR5ZmM5NTRQaHVJblRoOVk?oc=5",
+      "title": "Councilman Curren Price Pleads Not Guilty to Corruption - MyNewsLA.com",
+      "source": "MyNewsLA.com",
+      "date": "2026-04-10",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-12"
+    },
+    {
       "id": "1aa6470313d3",
       "url": "https://news.google.com/rss/articles/CBMisgFBVV95cUxQblNYekM4dlNyalh3RmhkUkhVSjQwSFhHRlZxNGpwVkt5elVrdVlhMU83clpDSldqMGVUQTg1d0ZnNm1uRzgyS1VJbWFkeXBYUGNrZlUwYUJaMlhaamlxN1lIZFUxbXZXMUJJNmdqYVVibkRDRUhubnVGTGtQSzJIVGxtUG1mWnVJT0VObUZSSEFqbUNPVjB2a3hibzZhczdkeTRqeS1IVjEwYWxMN0xKcXZn?oc=5",
       "title": "Michael Madigan Makes Appellate Case, Asking Court to Vacate Corruption Convictions - WTTW",
@@ -659,78 +731,6 @@
       "us_story": true,
       "added_date": "2026-04-09",
       "summary": "The New Jersey Attorney General is considering whether to continue funding or dissolve a controversial anti-corruption group that has been under investigation for potential conflicts of interest."
-    },
-    {
-      "id": "ba18a9aa25db",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQWUlYczFUSl9ZYm1FakJUYkVNcjJwMEdKZG5fS0wtamZxQmYteDlEM0EwNnp6M253TnhBdUVhSWJ6c2ZFR1dnX19PUFUySEZYdWZxOEZtR01tUTRLaG9WY194ZXRLNUhOczBUQThJTnF4RUdqZTgtaVE5YzZwRG1YYUJlQWZNNzR3UUZ1THM0c2pYNE9pR2J6NFoxUDh2NmZhWGFCMEdZZVVSdEVqZWxzd2h6eVFVMlJRRTBR?oc=5",
-      "title": "Peru faces record field in election, corruption and crime top voter concerns - Reuters",
-      "source": "Reuters",
-      "date": "2026-04-09",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "added_date": "2026-04-09",
-      "summary": "Peru's upcoming presidential election features a record number of candidates due to political gridlock, with voters most concerned about corruption and rising crime rates affecting public safety."
-    },
-    {
-      "id": "050f181b9e71",
-      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNQlBVdFd6UEJPUm1BWXFac0FTeEtKZ3RkdENmd2lLbGc0MWxMWDhZTWw1ZzVIYjh2OVBZNGtFYVFKanpjdXMxdjZselVERmh6NlBuaUdUODg1REZsRXNKNEYzUy1PQVBIX1d4YlZMNEo2cTl2eU5oaE94cFRHNFJ6MkZSWjhHbkV4MEpXclJmQUtKWWRJdW96M3p1ZUpwaEgzVGt4UGpoSzVrNDdMb0FTVFVpZTh2R2PSAbwBQVVfeXFMTkVUa3FYcFo3UjlkQlA3RldRcEJ4LXh4dGttbHJmYkp2d3VqQWxtNHp2RTNLQnEzSmcxdVotTndvcmtSY3JuY3pZN1VJNDUwNklrcE5WM2hOdmh6aDl4anhlMVBhSThEajhCT09EYVltTzFPVFFLNmstcmp4Q3U0dEV2S1VUNW9PZXhrQ3pJQVpwTXFHS1RBek15YnhmbjA3MUZONVM0ckVvQWduR2JoYXZ6di1WZE8wVkhwMi0?oc=5",
-      "title": "CAF President Motsepe rejects Senegal’s corruption claim amid AFCON fallout - Al Jazeera",
-      "source": "Al Jazeera",
-      "date": "2026-04-09",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "added_date": "2026-04-09",
-      "summary": "CAF President Motsepe denies corruption allegations from Senegal following controversy surrounding African Cup of Nations qualification."
-    },
-    {
-      "id": "5ddaffad5f51",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE5wcTQ1NzJpTkxaMjRiUGV4YzRfTVhsalZiY256OTYzOFl5NHFSMGhqNEJOQm5fVEw3ZXFBcnNrdFdTQnowV0c0SElFZi1GdnFqRWpPN254VUdJcVFwenVuZ215TnFTSWs?oc=5",
-      "title": "Caf president would welcome corruption investigation - BBC",
-      "source": "BBC",
-      "date": "2026-04-09",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "added_date": "2026-04-09",
-      "summary": "Caf president Sepp Blatter has expressed willingness to cooperate in any future corruption investigations into soccer's governing body FIFA by the British Broadcasting Corporation."
-    },
-    {
-      "id": "96fc2cfb2850",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE1FWGJ3RWlXR09FUGVjLThMaEtDeDZ5NVB6bXVFU2ptLUZTSmIxSUY4blN3OGlodm01OFRFdEJPNDVpX1dveFdXMVdQbkVpb0xxT1JFdTZjNE5vS3JqVkdMdVhrS2dLSWEzRHlXY0d5YWVDMUp4YXdUZEJydUU?oc=5",
-      "title": "Spain: major corruption trials begin - eurotopics.net",
-      "source": "eurotopics.net",
-      "date": "2026-04-09",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "added_date": "2026-04-09",
-      "summary": "Spain begins a series of high-profile corruption trials involving former politicians and business leaders implicating top officials in embezzlement and money laundering totaling billions euros."
-    },
-    {
-      "id": "29461798d781",
-      "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxPWlVQclprYnJxbnBsT1RWWVNVd0w0TlNZRlI3YTIwdmpFVm9TSzdDZXFneUNyZTdtdzJFb3dTRmp1MU5pYy14THYxNFo5ZG0ydEUwWldLQy01Z0JZcHRmMDJ3WXlYekhhUTVpaXJfTHBQYjN6YlJWZWc5Q3Axdlhpa2s3LXZqRTFFWnpnM01wVHh3QTFUX1pncUFKS2VDNkZPYzBjeGlLZmhHWDBIeUlKM3ZIQ2x4RktzLWNOQXFnRG43S2FPUnEyRHBKM1B6SHhXSVE?oc=5",
-      "title": "CAF’s Motsepe Welcomes Any Corruption Probes, Rejects Claims of Favoritism Toward Morocco - Morocco World News",
-      "source": "Morocco World News",
-      "date": "2026-04-09",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "added_date": "2026-04-09",
-      "summary": "CAF's Motsepe expresses openness to corruption investigations but firmly denies claims of favoritism towards Morocco in CAF’s decision-making process which has been under scrutiny for potential bias."
-    },
-    {
-      "id": "4d3001324589",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOMWs5eWNYbFVpWG93MW1uS2tkbGZfX3hZbjdVT0lVRGdCbFQwVmQ3SE1zOTNRSDBBLTVwU3F3SDhMYjRsSm1XMmRMaTkzZ0ZveDVYMTBEME1ha2dKeHJNdjFLam1lZ1BYMnZxeThiLTBRN283Rms0T3ZRcVkwMUJfUkJReVpCZEJKUThTQ3FtRXFLTm1kRi1iVE9lV1B6YkNwZFd5OHdlZUl2bk5MaDB5T25lZw?oc=5",
-      "title": "Becerra Defends Role in California Corruption Scandal - National Today",
-      "source": "National Today",
-      "date": "2026-04-09",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": true,
-      "added_date": "2026-04-09",
-      "summary": "Former Attorney General Xavier Becerra defended his role as a witness in the ongoing corruption scandal involving Governor Gavin Newsom and multiple state agencies including the Department of Social Services and Public Health."
     },
     {
       "id": "6161d422e3d7",
@@ -947,6 +947,18 @@
       "us_story": true,
       "summary": "A rare victory for Republicans saw a nonprofit accountability measure advance to the House floor in Maryland's contentious budget process, part of broader partisan tensions shaping state governance.",
       "added_date": "2026-04-10"
+    },
+    {
+      "id": "6c893d3484fb",
+      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxOYXI2d1hmcWNlMC10YXJGb09rWFZMUGtDT1JiRjVqS3NkRVExa3RPanIwR0dEcFQtR1pwZ3Z6MWlYNjNVVENRZjEzN0FEWmUxUU1lX0kzWmdYd2JhWWFOckNfT01KZC1EbEZYUlh4NDFhX0hyRUtEUjc5ZjlfUGNINWtORjdOM1ZmODV3UWZmU2NKZDRwM1VLenJSM1BtNjZOd0NoNmRfdWV6TDhUNFVBNFFFbURQRjd5Vk040gHAAUFVX3lxTE8xSUc5MFlqUFhmQVBBdTROLVB4VmNJRllqMUlJV3cwZVZDYnBqTE40aWVvS3BNTTlwRm9QY2h6OUNoalFaUkhScEdzM1RmUnBLWno0RXVGXy1SZXBPc3pmMW91WHNIRE5KRkFWTXdPdjhteVRSWGRGbjZJbWRhQkpCSUM2RHJNMnVULWgzSVU2cXZlVUhUNHp2d3ZlZVdwNndiX18tWXJLc1F4UjBfTlgtUE9BdF9ZUnBuRFI4cWFnTg?oc=5",
+      "title": "MACC proposes three new laws to curb public fund misappropriation, 'grand corruption' [WATCH] - NST Online",
+      "source": "NST Online",
+      "date": "2026-03-23",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-12"
     },
     {
       "id": "6c52e44f9b44",
