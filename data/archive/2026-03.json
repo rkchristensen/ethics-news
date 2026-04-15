@@ -58,6 +58,30 @@
       "us_story": true,
       "summary": "",
       "added_date": "2026-04-10"
+    },
+    {
+      "id": "6ae8d9714b2e",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxQMzFDNzdJalVXQ3hpWE9EcG5BZXZxLU1kYWM2aEJZdVY0UGhwQ0RFUlFBLV9hN1lOMmk2M2ZpNC1Sd2gtY1ZWYVpLdUFZRFhQTmJYRjB6NHlvSWhUYXI5SHpaVWVReUFLQUhCSHZ6OFgtSW5VRVcxejNRUUR2NnRkSHRuN3ZwT3lwd1lycHhUb2JLMWtnaEdkY1dsNGJpQlU2RlRPeUdTcTA?oc=5",
+      "title": "Yes, THE George Santos Found the Fraud in New York Nonprofit - South Shore Press",
+      "source": "South Shore Press",
+      "date": "2026-03-15",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": true,
+      "added_date": "2026-04-09",
+      "summary": "George Santos, a Republican politician running for Congress in New York's 27th district, exposed fraud within the George Santos Foundation, a nonprofit he founded to support local causes including affordable housing and mental health services."
+    },
+    {
+      "id": "8e4135739c91",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNLWZUOFVTaWZfRnpCM2ptWU9iX3VOdWJ0cWxsRnlFMUV2WjBtLVhZV3gwTm85VVB0MHAySXRhYWRKZUVYZEZOQ19ZeVcxeHJ0Qy16NVpoM1RvOHQybHJ5OHRwYktLMUFDM2F3ajRVQlp1QjVvX1hEc2RIOHV0Z2JMT21lOVRQUjdLaVdkNC1kMXA0RGV3eFBuSjl2MmJ4cTBOTDVTTTBUZlAzaDlLeGdaU3V0b1hLd1JVM0hQNmJSOUZRN3c?oc=5",
+      "title": "Your letters: Wausau resident raises concerns about HUD grant, nonprofit oversight - Wausau Pilot & Review",
+      "source": "Wausau Pilot & Review",
+      "date": "2026-03-02",
+      "sector": "nonprofit",
+      "tone": "positive",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-04-15"
     }
   ]
 }
