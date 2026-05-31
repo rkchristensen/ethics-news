@@ -1,6 +1,78 @@
 {
   "articles": [
     {
+      "id": "c74a33202923",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPUkJzVk1HcXVaYWhUQWZObXR1cEkzV0hsbWozVnJRMFRWMjQyaWU1cUxfNUFqSkw0RzAtTE9USXpkSThmb0lmekhIMWY4SWY5Z19zSEZWOW5nRzJFTkRIbFBDRUZ6RG10UVVQazBITEhHdU9HT0pZWGZZWXZWdzQzcVZGREhtaG02Vy0yeU1nNmJYMzFoaml3bjFqb1ZwUQ?oc=5",
+      "title": "Ukraine is fighting corruption in Zelensky’s inner circle. That’s worth defending - The Telegraph",
+      "source": "The Telegraph",
+      "date": "2026-05-31",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
+    },
+    {
+      "id": "8ba28e146216",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQNTR0ZnhYTjNrSUVXM09WWGJEWEdXcWFYQlE1dmp2Y21qdTdrbjFNSXhTRm9qeFhHbDlkM1pFbzhqRVhpRm84bFEyRGx4eDY4WjF5NDNoV0hSSDN1ZDNMZmhtQ3ZWclJKaS1FTnZES3owVTh4NUQwdVpFVzIxTlVlZGJWMkFfV2R0ZXRnaGhkVmJFX05zVU9KdmVmR0FhbDNKLW41a3cyam5zZDU5YmQyV05CZGpVY3VHMnc?oc=5",
+      "title": "Water anti-corruption forum seeks party pledge as SA heads into local elections - Inside Metros",
+      "source": "Inside Metros",
+      "date": "2026-05-31",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
+    },
+    {
+      "id": "68e9d673bee0",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxNbko0UDdsTmNhdTJZejdKZkg1ZE9meWpkbGpnRXZNcVJQX2NWQV9aZzN4c3Z2b3NLVFZITm1MWHM5eExpNEpzNEh3SC1uand4amwydVZnSHp1V0tuS2lfdUpKNFNTLVN3TEluOUZZWmFEZ1FqTlItYkJFYTFRbjJHaWJtSWVGa3VELWc5eUQ4TFFLMWNUM2hXMUVyZ2ZNOTBOT3d1SzU5Q01LMTkxTXo4?oc=5",
+      "title": "Vietnam grants amnesty to 133 inmates from high-profile corruption cases - Báo VietNamNet",
+      "source": "Báo VietNamNet",
+      "date": "2026-05-31",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
+    },
+    {
+      "id": "448a42bdf28b",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQV3UybXYwejIyT21YYlJyUU9SV29yZjFwbWhESlg1a0RTVDR0eEpQSHM4Tl9NTWJqbnBpLUhJMC1LbzR2Xy04S25CcjlQTERTUU8yWTJ3Y19RTXFrbi1lVGdzV3BnVDVCQW53M0tnRVVCOVhmZGlpMXFyMG9idmNUNjJCYXdSTGt0RS1sb1BOZlJQVmtJaDBqbFcyUldaZmNJYktnTm1Bb04zX3M?oc=5",
+      "title": "Prime Minister Balen Shah States Government and Party Committed to Eradicating Corruption and Mismanagement - Ratopati",
+      "source": "Ratopati",
+      "date": "2026-05-31",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
+    },
+    {
+      "id": "689535032ade",
+      "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPaldLMUFvMUtseGFaZllSMHZYNXNGeGhaekJJVzN1TF9iMjBOSkhrWjNfS3RQVVhucTdTd2k1TXNWaTJCMktPVmpab0hEYnRWaTB1V3FSQlRsUHE4VkJlRmR4LU9hbWd5NVlkWHVKTzVVR2Z1UzhDOC1VNy1fUzl4MXMxUnpWQUtzZ2lNNFFidjBrdw?oc=5",
+      "title": "Bihar Government Suspends Two IAS Officers Over Alleged Corruption Charges - Daily Pioneer",
+      "source": "Daily Pioneer",
+      "date": "2026-05-31",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
+    },
+    {
+      "id": "6c01d5126bf3",
+      "url": "https://news.google.com/rss/articles/CBMiugFBVV95cUxQVTBRekloSmFBUjV1OVlyUDNqLTAtbmxHYXZWVS0yaERCNlFsTHJ3azdTb3JuM0ZrS0s4N2JWNHVjRWctZGp3T1dPeWI5dWJSYkRWOXlLalBpZzlGQ0RNZGJ0dnVFZGpQWlAyUTdOUkVkMlB5Z0NXUTdNM0FFS0dxdVpPWW1xME9JUjNtY29UQVoxSERlcjJSLWNva3huUmd4b2pfaU9sOWlPUGlYTndtTDY5c29HV0hSUmc?oc=5",
+      "title": "Anita Among probe: Why many Ugandans are calling it a big joke - Daily Monitor",
+      "source": "Daily Monitor",
+      "date": "2026-05-31",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
+    },
+    {
       "id": "3bdd9559c4a6",
       "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE56aXNvVy1hNlcwRWRkMVBCdUM2OWJ6SzhBa3FnT2YtaGJPM0FuNWx6LVZnZXpvdlJhWXRKM3JiQ2xqMUhpSGROdWsxR3dXcE5JVHlab3RnTDdJUQ?oc=5",
       "title": "Spain's Sánchez digs in after eight years as PM as wave of scandals threatens survival - BBC",
@@ -83,6 +155,78 @@
       "us_story": false,
       "summary": "",
       "added_date": "2026-05-30"
+    },
+    {
+      "id": "165a93b53706",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9fcDNHeW5zT3hsQzVqdGNDdjFmWVkyRjJSeUI3TURueG1hN1VpMUhtekQ3QW9DVEpJNXZiX2loYXVpeGZJSjZGajRxYUdnc1Z1dnQxQkNxUHlDR2hZSUtScEJfcmpIb2pTdmpVdFVESEJFcDBkX1pITnBhX1R1UQ?oc=5",
+      "title": "Mapped: The World’s Most and Least Corrupt Countries - Visual Capitalist",
+      "source": "Visual Capitalist",
+      "date": "2026-05-30",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
+    },
+    {
+      "id": "f9f6e2e3790d",
+      "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQc281QVpwcGxGakpmbXM4MVduNlM2MGtFbXJMejk0VEp2ZVVJcXM2UnVRMVRaTXQ3d3JtZVVnQmlyb3FkZFNZWlRnd2hzbTdaZlQxRmdSdFpGUW1OalpFSUJ1NDR5VGFzQTZBSHo0VGR1NnVIcUpLM0phY3ZnVHZfeGthUkRWOHI2c1pGWGRtZUJfcHNPSi11cm5lTENLS2lV?oc=5",
+      "title": "Guatemala’s Pact of the Corrupt Helps Explain Chavismo - Caracas Chronicles",
+      "source": "Caracas Chronicles",
+      "date": "2026-05-30",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
+    },
+    {
+      "id": "63f24351f81f",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPNHhZWEg1aGpRdF9qUjFScDh1WmF5V0wxMVllUnA2SVBYLVYzY2MwS3YwV3ZSSThDN3JMZFV6UjBQZXo5SldoU0QxdGFhRUlKbXo2S01jaUU4eWJXZnZUMW12elkyTEpoNUtaMmpmaHFmb3o3UVNadHR4aVpacV9UQ3JheHp3VGZEc2lRWkFiakdJQU9VbU5LczJNXy1kUUJ5d2VCeTVPdVk1Z2tjMjJwekpUNUQ0QXRxWTdWUkNuY2kwMENxci1JUzZVZUNUcjg?oc=5",
+      "title": "Former premier of Turks and Caicos Islands is sentenced to 4 years in landmark corruption case - CityNews Toronto",
+      "source": "CityNews Toronto",
+      "date": "2026-05-30",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
+    },
+    {
+      "id": "ce0174d0e8ae",
+      "url": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxQa1l3aGRBc3c3a1g4bWJPLWtUNU1kZi1mb3JtOURITWVLbnVCNnRLUEhQcDU0aG01SlFPWTBNN0tiR25KMTJPRzM4b053TGVEN2RNLU9FZzZCMk56X01BdVhqRE8tM0ZfeDktMzBEVWNmcXQyWGVVQmFKVktmUlhTd3JKSTRjNGM5cEVhNGw1WVVxdnBiOEJmQ3Z0bHZxc0dxR2tKTnpuaTNKWWc?oc=5",
+      "title": "Former Turks and Caicos Premier Jailed in Landmark Caribbean Corruption Case - Greater Belize Media",
+      "source": "Greater Belize Media",
+      "date": "2026-05-30",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
+    },
+    {
+      "id": "c98622ef4fea",
+      "url": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxPOW15OXluMWxTRkpZN2pTb3I5ZUlMQnJJMjYzbVU2TUFTMHlzSjd4bENJSk5tQU8xMDJTVXdpTnhPMVdEZ0c2SGEtZlN1VmJUNVFRZ3llV2o3MkRpTkN4QVZMN21UTnAyQUYzN2M1RHZualVWVkNBOFpGeFlqYUVOZi1VaTk0N1dYSDVvUGk1Yl96UmhzMWtWY2JXUFZuUDkwenc2NmlUcU5xR1BwQlRrZXI3V01mQXhySnFnWEVlY3p3d1NWQS0xMTRvVmItblI4UzRSVmxR0gHcAUFVX3lxTE9CRFpWV3hiWG9EUDBEMHE4VlRlWHNqVTZ5WlhGLTNMclRQUzd0WVh1Q1lENjVhODE5T3hXVmdMYnpTcjNaZzFpeUI1MGJMUHJGTW8xZFdiNnBlNE9XZ0hFUW1SMHVfRlo2YTFyZnctOHVNcjZ1NVdIczJNRzBpbGJmY0NaOGM1NENSRlgxWFZmQ19lckZaT095dmh2cnVJbEQ4eXdnQ0ZpRVlIZUF5bm1NOXBVMlduc1RxUzQzMmo0ZkEtVi1zN0VSa2kyVnlxcC12UXE1dHRSTUNPaWw?oc=5",
+      "title": "‘Super corruption government’ is coming to exist: Chalavadi Narayanaswamy - The Hindu",
+      "source": "The Hindu",
+      "date": "2026-05-30",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
+    },
+    {
+      "id": "af28a833d841",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQdWNraXdjbzY1UHZZTldRLWh0ZE5rV0RBM2VSSXJSbnFmX0ozSGcwOFdnZjZNLXRTS2xyNXFJV0NMbjAzdmVyVkd2U254UHNkNHVobmsyWDdkeC1BaVluR0gxZ3NJLWg3djdxSHh0T1RmS2NkZWpVSlM3YUtWZDUwTkN5Q2s5a21nNWk1UW5MWVljMGhjXzVYblZydjVJMnVHMk9UbmV4bDhoVnlQbFRxQ2RkbjBFLUxFTW1mdkhnZDlpVGI3SGRoOC1nNNIB0gFBVV95cUxQRFM2cUhDbjJMbWNrWkNJOHFkWWZnVjFwUFJpd0RMMHZlSWVxOUJWeUlfQ1d6WS1mSU1yVDBpZFJYQUNraU5KdkE4UVZVcFVFU0MxWUxQREN0cWVDckV4ekVsZHNZSlI0N0d6cUlXWjRuVmRqQU92ZEpib00yT2EwWXkteGdpRm8tbC1sVlZvLWdSRGdLXzBSeFR3S3VnaDhDTHpaT0cxbzhPdzJfajh6ZmI0SFJ0RlB2ckdrLWJJNkdwVjh1TlljaDVHOTZlWG5mdkE?oc=5",
+      "title": "Bihar government suspends two IAS officers over corruption charges - The Hindu",
+      "source": "The Hindu",
+      "date": "2026-05-30",
+      "sector": "government",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
     },
     {
       "id": "e2140b50ce65",
@@ -565,172 +709,28 @@
       "added_date": "2026-05-30"
     },
     {
-      "id": "e99e2919d9c2",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxOOVc3VDVMZFRINVhlMHhWV0Y5cVV2clQtanJ5UjBNU3BDOXBRY1ZabU9ZbkZNU2dBSWJRakJMRWstWmVRZVJFYXhYaW1OenJvTXozZHM1bFFVTzJaVnRNdjRrRVJ0N0lkdTF1bFhVVmM4RjFZeDlSLWtqdC01WW9fTHFRMkpQNHZtazRJc1JvNU5QR2t2dkFWVkR0UlJwbWRfdVNqOU5DNkYyanFER1d3Wm9UM1RNNGN4RFRVQV9vcHByLWNCMkgwQmpqM0NOQQ?oc=5",
-      "title": "Pedro Sanchez’s brother goes on trial as corruption cases pile pressure on Spanish government - Anadolu Ajansı",
-      "source": "Anadolu Ajansı",
-      "date": "2026-05-28",
+      "id": "de42cb1b1f60",
+      "url": "https://news.google.com/rss/articles/CBMirwFBVV95cUxOcWhUaGU3QnVPaWNMdmE1VXF5VHRXVkRZZGhSLTducnQxdG1EbFpRTWVMeWRmTGZiZ3FoWEUzNWpSbTZUZTE0TjcydUNXSHFWbmNqblpVSUVfNjlKMVU5V3ZMUURuOUVUbUlRYU1FcGcyMGZ3MlY5VGlGYVp2MEpJS0lxOVdEWHR0SmtPdGlLYUNXb0RvYjVtaElsWXhscUt5R2NLbTlLTVAwcm4wNFJz?oc=5",
+      "title": "The corruption scandal threatening to topple Pedro Sanchez - The Telegraph",
+      "source": "The Telegraph",
+      "date": "2026-05-29",
       "sector": "government",
       "tone": "negative",
       "us_story": false,
       "summary": "",
-      "added_date": "2026-05-28"
+      "added_date": "2026-05-31"
     },
     {
-      "id": "1486f32b2690",
-      "url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNNVk0SVpabUQ5R0tMS3B2UE9YZjREYmN1WHVrOVNVekxFRjRLOU1Vcmh0OG5Idl9RMzB2bkJjRDhZcTR4UVpuWWlndmxrOGcwdy0xQlFSVE5TazlqWURsTWNpWXFsV3pZLUg3dFVnSXd0Y1ozZHFKT1lLSTVONThuQ0ZnVldHczMtbWloMXY1aWpSaFVQSDdyZFVpX3Fvakg0SVpOR1lmR2dqcGkwc3h4ZmU3NjhIZ1FLREhN?oc=5",
-      "title": "Spanish PM’s family affair: the corruption cases involving Pedro Sánchez’s brother, wife and predecessor - The Guardian",
-      "source": "The Guardian",
-      "date": "2026-05-28",
+      "id": "500b3ca65eab",
+      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQa1ZuNWVyTVRULTIwSktaRU52N3BCZUJydFpudjBfLTBOUmhrZ2NVNTMtTTdkUUY2dUFCZjk4a2pHSE92ODNka2pCNXYwdzg0ZENRQjcxN2J5NFE0a0VXaWJFc2tGYjFpbjd6QmhYNFRJOGtXTmwxZ3J1Z0M4bl9mUC1jSWFHd3RuRFVsVDFWVUNkLWJBSWdRNXNwem1YS3E4bVE3emFzd094dTNDOElvMTRSWG8zQQ?oc=5",
+      "title": "2 men pleaded guilty to attempting to bribe Bexar County Sheriff Javier Salazar for towing contract - KSAT",
+      "source": "KSAT",
+      "date": "2026-05-29",
       "sector": "government",
       "tone": "negative",
       "us_story": false,
       "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "86eaa0132c23",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOZjVubnRtTEdsNnBYcG9CejY3TDhIbE1PSDBVWDJuX0VPcUd0Y2x5RGhtZG45MHRYWS1wRmx0Zll3a3dzR0kzandGcHp0TDd3MG0zaWdxMzNKaHEzMklRMEJVcjdSVS1kTWQ2UHBFeVdheXVYSUNQR3hyVlM1eW1NaTFodU9ld01GZFRLVkJrdVY5WE5VVVRjdlBXUjR0VVpoMFRVTFZKTQ?oc=5",
-      "title": "Portugal Raids Socialist Party Stronghold in Corruption Probe, Five Arrested - News and Statistics - IndexBox",
-      "source": "IndexBox",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "f03289c93bd9",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxNc1lIRHpyTjdfN3c3RW9CYkE5bWJzNXNMbGNYY2w1WnVZMDQ3SURNNllQX1ZQcktXYjdfYVVJbzAtY182MXdiRmFuQ25CZmZDbi03VVB3RktZVGRXOXBZM1JIV1RpS252bE8xSGhVRnhlVVlkSnpOeGMxU1JsVzNvZk5nZ0kzazZRT2RuOWhxUkJYa1dRcWdGVHVfb2RCaER2SVE?oc=5",
-      "title": "Democrats Can’t Decide Whether the Problem Is Fraud or the People Exposing It - The Free Press",
-      "source": "The Free Press",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "4d8f0252278e",
-      "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxQaW45akVRSTBJUWJqMU1MOXNrejMwMFI0WlBGbV9UOGY4ZXY0eXZWWExMZ0l0czdVYXVmOG42QURTZlBOWEtxODgtcXlvWHBaZWxtSVMzY0NSRXFCOHVydFd2SGVPZFltc19SN3RQSUFIY2JEWEw2WUVQcG1RaEFULWxvY3I5R0ZzeTRadmdZZG1uMFJfck9hWQ?oc=5",
-      "title": "Scandal after scandal lands Spain’s Sánchez on the ropes - politico.eu",
-      "source": "politico.eu",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "ebf93280ca44",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFAzYUNaUUFwdllHcnZGNjN2MGVjUnFWXzdXbkU3SnozeEVjX2NJdlhBc1dPSkZYU3ZVaDhrN2UzQkk0Q3RoWlp1WWhKV2RucVpWNmxPR1hpb0gyQVFVdWtsWGMzck9SN01LTkZoQVRiRTdnUQ?oc=5",
-      "title": "Police visit Spanish Socialist headquarters as corruption pressure grows around Sánchez - EU Today",
-      "source": "EU Today",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "08d061a0ae46",
-      "url": "https://news.google.com/rss/articles/CBMi4wFBVV95cUxPX0hRMTFGaERCSnpqYVVsUlhsTlRDaV9rYjA2a0EwMTdsSHZHQ1luNmF5QWFGN0F5WFlQUjRSUzQ5NjFLRXhfa1BXWmJiLXJmUUExd092dkM2ZkJvNDhwRGxEMTA5R0hxSFN3NEtqMFk1QkkwTkNrQUg1ZEpZVXNRb2tGWE05a3prWnRIeEZSSVJtZjBzdnNqNFhBUFhjMDRuVl9yYW1EUkdkQnFGYzhoZFN3QUVNSmxzWHQzdkhCdTRtWW9MaE9GRm5QU2NGMTlVdWF6bUFtOTRrUGgxLXQyd0xmdw?oc=5",
-      "title": "Spain’s Political Storm Deepens as Corruption Probes Close in on Sánchez’s Inner Circle - Novinite.com",
-      "source": "Novinite.com",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "1eb4c75a3e39",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxONU1FTGE3WkpxcE9qbEFwWWg5bERRZlNpSUpqbERBQjc0VXdGWGZXNnRVZlUwalVvNndIdjhBQ2dpUENWYjNLRU5BSmJNU0FOeGNpdldNSjdYSXNCd0Y0YWozaUNHbTFzVlduaFJjN3Qta1V6WXMwZ05DWFVWazZCY0dCVzFmal9vVXlwazA5NHg?oc=5",
-      "title": "AOC Says 'Big Money In Politics' Hurts Public Trust As Democrats Set To Launch Anti-Corruption Caucus - Yahoo",
-      "source": "Yahoo",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "b344ac168d98",
-      "url": "https://news.google.com/rss/articles/CBMivgFBVV95cUxQamhGZ2xhMzNvSE1kclBtMjdlaEh3RmFrQzZ3eVFtVXdBVEI5akJTenBEVXplV2NMb2lMLXBkeGxqa2RoaW5Ea1NNZjRwN05zcDA2aDRaSHJldU44SkJxbUpTWWpiaVRqOXozbXhsMnc4VVdLY3RpVGZ1aDY3a2VXWHpwNENpcWFkRGhDNFAzOHQxYXFKdm1SUy1oeUR1OEE2dnRrUzROelJnekVEX0NjTUdXNWd6RW1wejE1Rjhn?oc=5",
-      "title": "Brussels regional government on the verge after corruption scandal with social housing - Brussels Signal",
-      "source": "Brussels Signal",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "23d30427a127",
-      "url": "https://news.google.com/rss/articles/CBMinwJBVV95cUxNc1FMcXFnR2lHZ2taZ1VqS1Y3dndFUGZtTUFlSjFmaWFaNDlLS1ZEMnk2aEZfcDBuSnIwMFpKYXplZllRMTE3N25OT1dfTUYwVDJLTFRFVlFlNGdfWGFzc0FCUlRKLWF3RUg4cTlZalB5MWVCTWNBMVFWbi02bnNMNmZEQVhfUUpfWWZFb3JlR013OU1CQnhxdF8ySFZIT0tIZjd5TkhmbXJjNFRyRS14LTctT3pQRXJSSWRWNGlzMFNuQUNpMHNaMHdXSURDR1dreUpDbDQ4RTd3dFNNMFRMeEJQN0p2bHZfSV96TmVMSmVDU21VcV9tanpmWEhfaDVTUFh6UnFheUx2X0hKVzkwX3lqUVd6SjJUb0JWcnpMZw?oc=5",
-      "title": "Anthony Scaramucci Says Genteel Washington Corruption Has Become An 'Open, Brazen, Billion-Dollar Operati - Benzinga",
-      "source": "Benzinga",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "1650c04907bb",
-      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE03OVhWMm1vTjl6US1hTTFEbzRaT0JOZVY5bENuRGQ5VlJ1M19rc25hazlfaUVZVHV3TVRTeVdCMVpwWHo5MnItWlRuYWF5N1lXVlRaQm12WWpESmFtMjRLN1kxcWxPUXk4OUZsTEhZU1N6dXl0U1docHJzZzc?oc=5",
-      "title": "Spain’s ruling Socialists’ HQ raided in corruption probe - Gript",
-      "source": "Gript",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "1a9e062a71e3",
-      "url": "https://news.google.com/rss/articles/CBMitgFBVV95cUxQODd4eGIybm95SXZLVU5XLVppb29QQU01bUxsTFhGM0phMzNjNmJhSFZSN3F5SHY5SXJsOVA0XzluSmtKR1BlR20wY1NXdkcxTzV0RTRZSTktUHNJcGs3SHZDd0NFaWZrX21KbWxjVUV3VkFsUkFNTEpCRnBhS05GVC1FTEtLbzVwMmtCaTFjVE5zdDIzNFh4ekh4QTIxWVBKV01qVjFac3pMZE5LSTFyWVlsVFFqdw?oc=5",
-      "title": "PJ launches megaoperation into suspicions of corruption within PS Socialist Party - Portugal Resident",
-      "source": "Portugal Resident",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "fb3e50b61db6",
-      "url": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxQeUdHMUdwUjhud2NlQkVrUkQzeDlVZVpYOXN3eENPX09LYWpGYmt4SGQ2cUs2MV9MZUp5MmtQR2FybFJTOVY5SmpwaVNTU0dPNmFIc0ZpZklOeTBpYXVNT04yejVpTWxtcDhTSHBqYVM1WFBJTUJFWlZFc0RSYTM4ZjI1UnRnZXNpeEZJMGh1cnFnUDFDQTM5cUNFTGNDRzJxS04zbVlGZVY5dHBGOWlUN09nZEgzQmpRVnVTclNvQTBDUXNaRWxtRDZrRWk2N1pIOWVfMlVRemQtWnVyZ25iXzVhVzFuUzdJb3lBTHRfTE5mUTVmaVhpYTVmcw?oc=5",
-      "title": "Allegations of Failure and Corruption Rock PWD & DWS: Er Rajib Majumder New CE DWS & Er Anup Kr Das New CE PWD - TRIPURAINFO",
-      "source": "TRIPURAINFO",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
-    },
-    {
-      "id": "ae2925520761",
-      "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxQbHY3QmVPanB6X2p5dVBMenlibUpKbnlCLXFNb2tsZ3gwcHp6TC03OFNMOC1reXRDV05iN0Vfd09mNFJLTHNaM2NHdHdFZFBnR1E1T3JYMWVJMnBRV0dXZEFSOWNkLThrNFVibDlweV84THdRSlRSMVpSWGY1Q3RxSGJoQzEzYkdfTmtzeDRVa05uV01BOFlES0JpSmVTNkl1UFloSTFuUFZUWXky0gGyAUFVX3lxTFBxdHJKTG9LSnQyLVUzNkl5ZmVDcVd1dWJEODBkS1RCWm41TmhKVm1vN1FwM3c5Y0hEMjBaeVo1M2hEMUZUOWUyc0F2WFBxM3NESG50Y0xHYXlFMURSOXVCcDJKN2s5Z3F3d3pxRWpocmVJMk01NjB3ZmhxN2RnRTFNa1lBcDNVbkJFR1JSWVlHLWdiZmM4Z1BwcjZTS2lnNzdyLXN6SWp3VkJrS2Y5TDdpZkE?oc=5",
-      "title": "Kidapawan bishop urges gov’t to pursue raps vs corrupt public officials - Inquirer.net",
-      "source": "Inquirer.net",
-      "date": "2026-05-28",
-      "sector": "government",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-28"
+      "added_date": "2026-05-31"
     },
     {
       "id": "9531abdc13b7",
@@ -815,6 +815,18 @@
       "us_story": false,
       "summary": "",
       "added_date": "2026-05-30"
+    },
+    {
+      "id": "41d899302966",
+      "url": "https://news.google.com/rss/articles/CBMizwFBVV95cUxPdy04SjJoakhHd25oTFowbFVCYjh1aUlOMFN6Y2M2b1JYTTM1N2xRQlhac0pwZHNJMDg2WU1TZkhUTDRGNFJCWlRmOV9IRmhNM3RuV3hvcTczQjdYVjdBSFR6TldQSU9zcFNMX20xb1o0Z0RIRzM0VTJzUnFQTGxJOVdlay1LOVE4eEZXdHJabHVNbk5tdTd4dExpcHN2TUFZQzZWVlBmRWZQWDJGb3MzMjd1Q1lIbU94dFJPSnctN2JyUHk0V2RKRDVMTkU3ajg?oc=5",
+      "title": "Nonprofit fraud: Amid high‑profile prosecutions, an accountant explains what’s really going on - MinnPost",
+      "source": "MinnPost",
+      "date": "2026-05-22",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-31"
     },
     {
       "id": "20ef7b76134d",
@@ -1127,30 +1139,6 @@
       "us_story": false,
       "summary": "",
       "added_date": "2026-05-03"
-    },
-    {
-      "id": "173c27888a15",
-      "url": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNN3h5NzRfaC1DUndSLWxIMHQ1LTNqMUdyTUQzdGh4ZzF3U19pcldGVW9zTE1TLVJTaUREdC16SE83VHJsSkR0Wk9Ka0p2WXEzT1BMYVNxUU16cHRtNW01X19VbWs4X2xXZlhianRUblYyQWlLMTJKVEU4Q3ZGUGNmV21ndUhVekZWUEE2ZmswYkk0UFZmU3hDaUhjb1MyaDNVUzV0emYyWFpBcjIxS1d1X9IBtgFBVV95cUxOSnZDQUhOb2V5d0lIS2V1TEtuWTd4YVJ2ZHd0V19ZaHdSQ2plb3gtXzYwc1BQeXRuMHRrVW9KTS1hM0dhanVucDVySUREVDlFUWFYSDZMbUpueW54NDEzcFVtY3RIM1FFNjd3dkgtZ2VRODhpc2xKREZlWDVYLWc3Sl9rZVZ4U1dXWmhJLWZzY2FPLWx5a0R3Z29ISk5lV185Sy0zM2JSWDJBZkVaSGJOa2JuZTJTUQ?oc=5",
-      "title": "RM230mil misappropriation case: NGO rep, company director on bail - NST Online",
-      "source": "NST Online",
-      "date": "2026-04-30",
-      "sector": "nonprofit",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-04-30"
-    },
-    {
-      "id": "02c1d7f69a7d",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBBNmpGVVJvVjdpaHRQaFdJa0xzbXk2RzE1UVpjOU5vVFNLQ1JCU3ZJS3k2SnhZWWc4dV9FOUh4RWI0c1pNVUZxcHdkcWdnQ0xOcXJ1VVFYY2ZNY1dPLU5pWWxnMW5haGJpTDZ1WVdyamxaSmdfckE?oc=5",
-      "title": "Orbán rival steps aside, but anti-corruption work to continue through foundation - Daily News Hungary",
-      "source": "Daily News Hungary",
-      "date": "2026-04-30",
-      "sector": "nonprofit",
-      "tone": "negative",
-      "us_story": false,
-      "summary": "",
-      "added_date": "2026-05-01"
     }
   ]
 }
