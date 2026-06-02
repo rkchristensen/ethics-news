@@ -1,0 +1,40 @@
+{
+  "articles": [
+    {
+      "id": "3e98b4946bbd",
+      "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPdE5XeDZCc0YyOEV0aW0tazEzRkp2bEdiT1JYbmxyREJ1eWJxenI2akpubmhQNWdRVjlVN1ZadVIxQ2tQT3dEa3h5bF83MFdYNGxxdk9WZU1CdnVPN2s3bkNwSlpIT0JhRHRraW5nTVVJemt2cnl3SEY0cVVVdzJhQm52RWNCWDI4UkVsNkhtUGRFbHRXNlRhVllyYnkwMGVwRHRzWklR?oc=5",
+      "title": "Charity Today alerting charities to rise in invoice fraud across the UK - Charity Today News",
+      "source": "Charity Today News",
+      "date": "2026-05-02",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-02"
+    },
+    {
+      "id": "eebb5d2234e6",
+      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPNTVsUjM2MmRvX3JiZ1RYODlqLWs4RE82cjRtd1lKWVFoaVdCd1AzT1hWMHlyZ00wZkRLX2JHaUg4S0JPWmxfbFduZzRTZ3RrcmFaUDdlQlpfVl9fZ280UFpRUVdXMmExdnZ5STdtNjBmVkZ1RGQ5aV9JU2FPc0JXZkNHb09ka3FRYUQyTEhyWWIwRFJJbElTSzdtTzBrU2tYaE1OTENFem41MGZVTjJUbWRibkg2czk4aTNVY19oNkVTeEU?oc=5",
+      "title": "Ramstad: Minnesotans shouldn’t lose faith in their charities. They’re not driving the fraud. - Star Tribune",
+      "source": "Star Tribune",
+      "date": "2026-05-02",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": true,
+      "summary": "",
+      "added_date": "2026-05-03"
+    },
+    {
+      "id": "8d275fe6551a",
+      "url": "https://news.google.com/rss/articles/CBMi6gJBVV95cUxQd0Jic2RFTXNJdVFrZ3RTUE5Ua05FZGFZNWFpUTNzS2JsYjdIRWwta1lGQVRpMTdkV2hNWHNHZ0k5U1VJZzdiVWZIOHlNLUlTTEwycW9UVDZwOWdNQk1jejRYR0l3NnVMdmZ0dk9UM2dPcG82bG51MHFwUUFkVUlXZlB0ZjNFOWwyalBsZC1INGpjRDE1OHhkQzRHTlVWbDB2UlFRdDhNdmFuc1ZSMXNVbDFfTURNSmd2SUdJenpmeVJGaVBIS0ZxcEZkUWhKZ3dBYUNTYzRFdWdvMWFldzhUQ0VLUUJ6eU95MHJJckNQMmVXQlpwcmlCb3pQUzZ2SWZ0bTRKVWdadWdWZnpaamVRNEFLQk14VG1PX0lRZ1I5RHE2TEJBQTBLREkwLXdSVGV5a0J5VmJpcUJBQ0psU2cxRUZzczNlVWdYY01pQlVaUVR3dDgyV1hqaHNTNW9zZWZjTG05bjMtTDlidw?oc=5",
+      "title": "Irish couple accused of misappropriating charity funds for Australian children's hospitals - MSN",
+      "source": "MSN",
+      "date": "2026-05-02",
+      "sector": "nonprofit",
+      "tone": "negative",
+      "us_story": false,
+      "summary": "",
+      "added_date": "2026-05-03"
+    }
+  ]
+}
