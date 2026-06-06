@@ -1,0 +1,38 @@
+name: Update ethics news archive
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 13 * * *"
+
+permissions:
+  contents: write
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Refresh ethics news archive
+        run: python3 scripts/update_ethics_news.py
+
+      - name: Commit and push if changed
+        run: |
+          if git diff --quiet; then
+            echo "No story updates."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add ethics-news/data
+          git add .github/workflows/update-ethics-news.yml
+          git add scripts/update_ethics_news.py
+          git commit -m "chore: daily ethics news archive refresh"
+          git push
